@@ -37,7 +37,7 @@ export default defineConfig({
     logo: '/logo.png',
 
     editLink: {
-      pattern: 'https://github.com/xxx/xxx/edit/main/:path',
+      pattern: 'https://github.com/elegant-admin/docs-cn/edit/main/:path',
       text: '为此页提供修改建议',
     },
 
