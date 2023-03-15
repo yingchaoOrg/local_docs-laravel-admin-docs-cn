@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.a7360db3.js";const A=JSON.parse('{"title":"详情扩展","description":"","frontmatter":{},"headers":[],"relativePath":"guide/model-show-extension.md"}'),p={name:"guide/model-show-extension.md"},o=l("",14),e=[o];function t(c,r,i,y,D,F){return n(),a("div",null,e)}const d=s(p,[["render",t]]);export{A as __pageData,d as default};
