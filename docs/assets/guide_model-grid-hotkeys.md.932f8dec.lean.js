@@ -1,1 +1,0 @@
-import{_ as t,o as e,c as a,Q as s}from"./chunks/framework.a7360db3.js";const m=JSON.parse('{"title":"快捷键","description":"","frontmatter":{},"headers":[],"relativePath":"guide/model-grid-hotkeys.md"}'),d={name:"guide/model-grid-hotkeys.md"},o=s("",6),r=[o];function n(p,c,l,i,_,h){return e(),a("div",null,r)}const y=t(d,[["render",n]]);export{m as __pageData,y as default};

@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as o}from"./chunks/framework.486b000b.js";const C=JSON.parse('{"title":"表单初始化","description":"","frontmatter":{},"headers":[],"relativePath":"guide/model-form-init.md"}'),l={name:"guide/model-form-init.md"},p=o("",6),e=[p];function t(c,r,D,F,y,A){return n(),a("div",null,e)}const d=s(l,[["render",t]]);export{C as __pageData,d as default};

@@ -5,7 +5,7 @@
 
 <p align="center">
   <a href="https://vitejs.dev" target="_blank" rel="noopener noreferrer">
-    <img width="180" src="/docs-cn/logo.png" alt="Vite logo">
+    <img width="180" src="https://github.com/elegant-admin/docs-cn/logo.png" alt="Vite logo">
   </a>
 </p>
 <br/>

@@ -1,1 +1,0 @@
-import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.a7360db3.js";const i=JSON.parse('{"title":"自定义登录","description":"","frontmatter":{},"headers":[],"relativePath":"guide/custom-authentication.md"}'),p={name:"guide/custom-authentication.md"},o=l("",13),e=[o];function t(c,r,D,y,C,A){return n(),a("div",null,e)}const d=s(p,[["render",t]]);export{i as __pageData,d as default};

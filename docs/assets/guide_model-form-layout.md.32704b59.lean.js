@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.486b000b.js";const i=JSON.parse('{"title":"表单布局","description":"","frontmatter":{},"headers":[],"relativePath":"guide/model-form-layout.md"}'),p={name:"guide/model-form-layout.md"},o=l("",6),e=[o];function t(F,D,c,r,y,A){return n(),a("div",null,e)}const d=s(p,[["render",t]]);export{i as __pageData,d as default};
