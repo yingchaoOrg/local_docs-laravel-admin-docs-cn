@@ -26,7 +26,7 @@ export default defineConfig({
 
   locales: {
     root: { label: '简体中文' },
-    en: { label: 'English', link: '/' },
+    en: { label: 'English', link: 'https://elegant-admin.github.io/docs-en/' },
   },
 
   vue: {

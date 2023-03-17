@@ -146,7 +146,7 @@ $grid->column('title', '标题')->expand(function ($model) {
 
 闭包函数中可以返回任何可被渲染的内容。
 
-## 异步加载 [#异步加载}
+## 异步加载 {#异步加载1}
 
 > Since v.18.0
 
@@ -191,7 +191,7 @@ $grid->column('title', '标题')->modal('最新评论', function ($model) {
 
 ![Kapture 2019-03-10 at 23 43 49](https://user-images.githubusercontent.com/1479100/54087609-7abb7280-438f-11e9-8a44-7e68bb126cd1.gif)
 
-## 异步加载 {#异步加载}
+## 异步加载 {#异步加载2}
 
 > Since v.18.0
 
