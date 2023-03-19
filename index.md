@@ -1,16 +1,16 @@
 ---
 layout: home
 
-title: Laravel-Admin
+title: Elegant-Admin
 titleTemplate: 一个可以快速构建后台管理的工具
 
 hero:
-  name: Laravel-Admin
+  name: Elegant-Admin
   text: 一个可以快速构建后台管理的工具
   tagline: 它提供的页面组件和表单元素等功能，能帮助你使用很少的代码就实现功能完善的后台管理功能
   image:
     src: /logo.png
-    alt: Laravel-Admin
+    alt: elegant-admin
   actions:
     - theme: brand
       text: 开始

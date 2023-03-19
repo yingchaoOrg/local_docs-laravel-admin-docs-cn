@@ -1,6 +1,6 @@
 # 语言本地化
 
-laravel-admin安装完成之后，如果界面显示的文字还是英文，说明你的框架语言设置为英文，需要在`config/app.php`里面修改为中文：
+elegant-admin安装完成之后，如果界面显示的文字还是英文，说明你的框架语言设置为英文，需要在`config/app.php`里面修改为中文：
 
 ```php
     'locale' => 'zh-CN',

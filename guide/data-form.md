@@ -21,7 +21,7 @@ php artisan admin:form Setting --title=网站设置
 
 namespace App\Admin\Forms;
 
-use Encore\Admin\Widgets\Form;
+use Elegant\Admin\Widgets\Form;
 use Illuminate\Http\Request;
 
 class Setting extends Form
@@ -84,7 +84,7 @@ class Setting extends Form
 
 use App\Admin\Forms\Setting;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Layout\Content;
+use Elegant\Admin\Layout\Content;
 
 class UserController extends Controller
 {
@@ -160,7 +160,7 @@ class Setting extends Form
 
 use App\Admin\Forms\Search;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Layout\Content;
+use Elegant\Admin\Layout\Content;
 
 class UserController extends Controller
 {
@@ -193,8 +193,8 @@ class UserController extends Controller
 ```php
 use App\Admin\Forms\Settings;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\Tab;
+use Elegant\Admin\Layout\Content;
+use Elegant\Admin\Widgets\Tab;
 
 class FormController extends Controller
 {
@@ -228,8 +228,8 @@ class FormController extends Controller
 
 use App\Admin\Forms\Steps;
 use App\Http\Controllers\Controller;
-use Encore\Admin\Layout\Content;
-use Encore\Admin\Widgets\MultipleSteps;
+use Elegant\Admin\Layout\Content;
+use Elegant\Admin\Widgets\MultipleSteps;
 
 class FormController extends Controller
 {
@@ -255,7 +255,7 @@ class FormController extends Controller
 
 namespace App\Admin\Forms\Steps;
 
-use Encore\Admin\Widgets\StepForm;
+use Elegant\Admin\Widgets\StepForm;
 use Illuminate\Http\Request;
 
 class Info extends StepForm
@@ -291,7 +291,7 @@ class Info extends StepForm
 ```
 
 ::: tip Notice
-注意在步骤表单继承的是`Encore\Admin\Widgets\StepForm`类
+注意在步骤表单继承的是`Elegant\Admin\Widgets\StepForm`类
 :::
 
 在`handle`方法中, 有下面的一些方法可以帮助处理各种情况

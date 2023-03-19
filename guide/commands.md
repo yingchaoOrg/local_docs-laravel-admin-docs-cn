@@ -1,35 +1,29 @@
 # 控制台命令
 
-`Laravel-admin`内置了几个控制台命令来帮助开发，安装好laravel-admin之后，就可以直接使用它们了
+`elegant-admin`内置了几个控制台命令来帮助开发，安装好elegant-admin之后，就可以直接使用它们了
 
 ## artisan admin {#artisan-admin}
 
 > since v1.5.19
 
-使用`php artisan admin`命令可以显示当前`Laravel-admin`的版本，以及列出所有可用的admin命令
+使用`php artisan admin`命令可以显示当前`elegant-admin`的版本，以及列出所有可用的admin命令
 
 ```shell
 $ php artisan admin
-    __                                __                __          _
-   / /   ____ __________ __   _____  / /     ____ _____/ /___ ___  (_)___
-  / /   / __ `/ ___/ __ `/ | / / _ \/ /_____/ __ `/ __  / __ `__ \/ / __ \
- / /___/ /_/ / /  / /_/ /| |/ /  __/ /_____/ /_/ / /_/ / / / / / / / / / /
-/_____/\__,_/_/   \__,_/ |___/\___/_/      \__,_/\__,_/_/ /_/ /_/_/_/ /_/
-
-Laravel-admin version 1.8.1
+elegant-admin version 1.8.20
 
 Available commands:
  admin:make              Make admin controller
  admin:controller        Make admin controller from giving model
  admin:menu              Show the admin menu
  admin:install           Install the admin package
- admin:publish           re-publish laravel-admin's assets, configuration, language and migration files. If you want overwrite the existing files, you can add the `--force` option
+ admin:publish           re-publish elegant-admin's assets, configuration, language and migration files. If you want overwrite the existing files, you can add the `--force` option
  admin:uninstall         Uninstall the admin package
- admin:import            Import a Laravel-admin extension
+ admin:import            Import a elegant-admin extension
  admin:create-user       Create a admin user
  admin:reset-password    Reset password for a specific admin user
- admin:extend            Build a Laravel-admin extension
- admin:export-seed       Export seed a Laravel-admin database tables menu, roles and permissions
+ admin:extend            Build a elegant-admin extension
+ admin:export-seed       Export seed a elegant-admin database tables menu, roles and permissions
  admin:minify            Minify the CSS and JS
  admin:form              Make admin form widget
  admin:permissions       generate admin permission base on table name
@@ -43,10 +37,10 @@ Available commands:
 这个命令用来创建admin控制器，传入一个model，它会根据model对应表的字段，默认构建出所需的grid，form和show三个页面的代码，
 
 ```shell
-$ php artisan admin:make PostController --model=App\\Post
+$ php artisan admin:make PostController --model=App\\Models\\Post
 
 // 在windows系统中
-$ php artisan admin:make PostController --model=App\Post
+$ php artisan admin:make PostController --model=App\Models\Post
 
 App\Admin\Controllers\PostController created successfully.
 ```
@@ -67,7 +61,7 @@ App\Admin\Forms\UserSetting created successfully.
 
 ## artisan admin:install & artisan admin:uninstall {#install&uninstall}
 
-这两个命令分别用来安装和卸载laravel-admin包，其中`admin:install`会在项目装创意一下几个文件或目录
+这两个命令分别用来安装和卸载elegant-admin包，其中`admin:install`会在项目装创意一下几个文件或目录
 
 ```shell
 .
@@ -78,14 +72,12 @@ App\Admin\Forms\UserSetting created successfully.
 │       ├── en/admin.php
 │       └── zh-CN/admin.php
 ├── database/migrations/2016_01_04_173148_create_admin_tables.php
-└── public/vendor/laravel-admin/
+└── public/vendor/elegant-admin/
 ```
 
 运行`artisan admin:uninstall`将会删除这几个文件或者目录
 
 ## artisan admin:create-user {#create-user}
-
-> since v1.5.19
 
 这个命令用来创建一个admin用户，用交互式的方式填写用户名和密码、并且选择角色之后，会创建一个可登录的用户
 
@@ -98,8 +90,6 @@ $ php artisan admin:create-user
 
 ## artisan admin:reset-password {#reset-password}
 
-> since v1.5.19
-
 这个命令用来给指定用户重置密码，根据命令的提示来操作
 
 ```shell
@@ -111,7 +101,7 @@ $ php artisan admin:reset-password
 
 ## artisan admin:import {#import}
 
-这个命令用来在安装一个laravel-admin扩展之后，导入相关配置，具体的用法正在各个扩展的文档里面
+这个命令用来在安装一个elegant-admin扩展之后，导入相关配置，具体的用法正在各个扩展的文档里面
 
 ## artisan admin:menu {#menu}
 

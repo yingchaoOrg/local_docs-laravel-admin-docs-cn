@@ -1,6 +1,6 @@
 # 自定义登录
 
-如果不使用`laravel-admin`内置的认证登录逻辑，可以参考下面的方式自定义登录认证逻辑
+如果不使用`elegant-admin`内置的认证登录逻辑，可以参考下面的方式自定义登录认证逻辑
 
 首先要先定义一个`user provider`，用来获取用户身份, 比如`app/Providers/CustomUserProvider.php`：
 

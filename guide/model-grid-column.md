@@ -179,7 +179,7 @@ $grid->column('images')->display(function ($images) {
 在`app/Admin/bootstrap.php`加入以下代码:
 
 ```php
-use Encore\Admin\Grid\Column;
+use Elegant\Admin\Grid\Column;
 
 Column::extend('color', function ($value, $color) {
     return "<span style='color: $color'>$value</span>";
@@ -201,8 +201,8 @@ $grid->column('title')->color('#ccc');
 
 namespace App\Admin\Extensions;
 
-use Encore\Admin\Admin;
-use Encore\Admin\Grid\Displayers\AbstractDisplayer;
+use Elegant\Admin\Admin;
+use Elegant\Admin\Grid\Displayers\AbstractDisplayer;
 
 class Popover extends AbstractDisplayer
 {
@@ -231,7 +231,7 @@ EOT;
 然后在`app/Admin/bootstrap.php`注册扩展类：
 
 ```php
-use Encore\Admin\Grid\Column;
+use Elegant\Admin\Grid\Column;
 use App\Admin\Extensions\Popover;
 
 Column::extend('popover', Popover::class);

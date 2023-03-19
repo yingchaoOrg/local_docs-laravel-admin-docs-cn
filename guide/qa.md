@@ -4,7 +4,7 @@
 
 ## 为什么这个方法/功能不生效呢？{#qa-1}
 
-大概率是版本问题，参考[版本升级](https://laravel-admin.org/docs/zh/1.x/upgrading.md)来升级你的版本。
+大概率是版本问题，参考[版本升级](https://elegant-admin.org/docs/zh/1.x/upgrading.md)来升级你的版本。
 
 ## 怎么设置语言呢？{#qa-2}
 
@@ -17,16 +17,16 @@
 打开`app/Admin/bootstrap.php`，加入下面的代码：
 
 ```php
-use Encore\Admin\Facades\Admin;
+use Elegant\Admin\Facades\Admin;
 
 Admin::disablePjax();
 ```
 
 ## 关于扩展自定义组件 {#qa-4}
 
-`laravel-admin`默认引用了大量前端资源，如果有网络问题或者有不需要使用的组件，可以参考[form组件管理](https://laravel-admin.org/docs/zh/1.x/model-form-field-management.md)将其移除。
+`elegant-admin`默认引用了大量前端资源，如果有网络问题或者有不需要使用的组件，可以参考[form组件管理](https://elegant-admin.org/docs/zh/1.x/model-form-field-management.md)将其移除。
 
-关于富文本编辑器，由于静态资源包文件普遍太大，所以`laravel-admin`默认通过cdn的方式引用`ckeditor`，建议大家根据自己的需求扩展编辑器，自行配置。
+关于富文本编辑器，由于静态资源包文件普遍太大，所以`elegant-admin`默认通过cdn的方式引用`ckeditor`，建议大家根据自己的需求扩展编辑器，自行配置。
 
 ## 关于前端资源问题 {#qa-5}
 
@@ -56,15 +56,15 @@ Route::group([
 
 在自定义的控制器`AuthController`中的`getLogin`、`postLogin`方法里分别实现自己的登录页面和登录逻辑。
 
-参考控制器文件[AuthController.php](https://github.com/z-song/laravel-admin/blob/master/src/Controllers/AuthController.php)，视图文件[login.blade.php](https://github.com/z-song/laravel-admin/blob/master/views/login.blade.php)
+参考控制器文件[AuthController.php](https://github.com/z-song/elegant-admin/blob/master/src/Controllers/AuthController.php)，视图文件[login.blade.php](https://github.com/z-song/elegant-admin/blob/master/views/login.blade.php)
 
 ## 更新静态资源 {#qa-7}
 
-如果遇到更新之后,部分组件不能正常使用,那有可能是`laravel-admin`自带的静态资源有更新了,需要运行命令`php artisan vendor:publish --tag=laravel-admin-assets --force`来重新发布前端资源，发布之后不要忘记清理浏览器缓存.
+如果遇到更新之后,部分组件不能正常使用,那有可能是`elegant-admin`自带的静态资源有更新了,需要运行命令`php artisan vendor:publish --tag=elegant-admin-assets --force`来重新发布前端资源，发布之后不要忘记清理浏览器缓存.
 
 ## 页面乱码问题 {#qa-8}
 
-在下载或者预览文件的时候，可能会遇到页面内容全部乱码的情况，出现这个问题的原因，是因为Laravel-admin默认使用pjax来加载页面，它会读取要下载或者预览的内容来渲染到当前页面的内容区域。
+在下载或者预览文件的时候，可能会遇到页面内容全部乱码的情况，出现这个问题的原因，是因为elegant-admin默认使用pjax来加载页面，它会读取要下载或者预览的内容来渲染到当前页面的内容区域。
 
 解决办法是打开新页面来下载或者预览文件：
 
@@ -110,10 +110,10 @@ a标签上添加`target="_blank"`, 用新页面打开避免使用pjax加载页�
 
 请先阅读 https://learnku.com/docs/laravel/7.x/upgrade/7445#date-serialization
 
-如果想使用默认的`2020-03-04 16:11:00`格式，也可以在你的模型里面引入`Encore\Admin\Traits\DefaultDatetimeFormat`
+如果想使用默认的`2020-03-04 16:11:00`格式，也可以在你的模型里面引入`Elegant\Admin\Traits\DefaultDatetimeFormat`
 
 ```php
-use Encore\Admin\Traits\DefaultDatetimeFormat;
+use Elegant\Admin\Traits\DefaultDatetimeFormat;
 
 class User extends Model
 {
@@ -125,15 +125,15 @@ class User extends Model
 
 ## 覆写内置视图 {#qa-12}
 
-如果有需要自己修改view，但是不方便直接修改`laravel-admin`的情况，可以用下面的办法解决
+如果有需要自己修改view，但是不方便直接修改`elegant-admin`的情况，可以用下面的办法解决
 
-复制`vendor/encore/laravel-admin/views`到项目的`resources/views/admin`，然后在`app/Admin/bootstrap.php`文件中加入代码：
+复制`vendor/encore/elegant-admin/views`到项目的`resources/views/admin`，然后在`app/Admin/bootstrap.php`文件中加入代码：
 
 ```php
 // 覆盖`admin`命名空间下的视图
 app('view')->prependNamespace('admin', resource_path('views/admin'));
 ```
 
-这样就用`resources/views/admin`下的视图覆盖了`laravel-admin`的内置视图。
+这样就用`resources/views/admin`下的视图覆盖了`elegant-admin`的内置视图。
 
-在laravel-admin每个新版本发布的时候, 内置视图都有可能会变更，所以如果你覆写了laravel-admin的视图，在更新laravel-admin版本的时候, 很有可能会出现视图方面的问题，这个需要你对照修改过的视图文件和内置视图自行修改解决。
+在elegant-admin每个新版本发布的时候, 内置视图都有可能会变更，所以如果你覆写了elegant-admin的视图，在更新elegant-admin版本的时候, 很有可能会出现视图方面的问题，这个需要你对照修改过的视图文件和内置视图自行修改解决。

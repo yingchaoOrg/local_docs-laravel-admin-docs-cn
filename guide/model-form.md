@@ -1,6 +1,6 @@
 # 基于数据模型的表单
 
-`Encore\Admin\Form`类用于生成基于数据模型的表单，先来个例子，数据库中有`movies`表
+`Elegant\Admin\Form`类用于生成基于数据模型的表单，先来个例子，数据库中有`movies`表
 
 ```sql
 movies
@@ -19,7 +19,7 @@ movies
 
 ```php
 use App\Models\Movie;
-use Encore\Admin\Form;
+use Elegant\Admin\Form;
 
 $form = new Form(new Movie);
 

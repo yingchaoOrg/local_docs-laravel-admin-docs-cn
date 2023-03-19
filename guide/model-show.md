@@ -26,7 +26,7 @@ namespace App\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
-use Encore\Admin\Show;
+use Elegant\Admin\Show;
 
 class PostController extends Controller
 {

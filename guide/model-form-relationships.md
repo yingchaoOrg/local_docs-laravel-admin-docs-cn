@@ -319,8 +319,8 @@ $form->select('author_id')->options(User::all()->pluck('name', 'id'));
 namespace App\Admin\Selectable;
 
 use App\Models\User;
-use Encore\Admin\Grid\Filter;
-use Encore\Admin\Grid\Selectable;
+use Elegant\Admin\Grid\Filter;
+use Elegant\Admin\Grid\Selectable;
 
 class Users extends Selectable
 {
@@ -343,7 +343,7 @@ class Users extends Selectable
 
 列表选择类中，`$model`属性用来指定列表的模型，列表默认数据为`10`条，可以使用属性 `protected $perPage = 5;`来设置每页数量。
 
-`make`方法用来构建列表，使用方法参考 [model-grid 文档](https://laravel-admin.org/docs/zh/1.x/model-grid.md)
+`make`方法用来构建列表，使用方法参考 [model-grid 文档](https://elegant-admin.org/docs/zh/1.x/model-grid.md)
 
 下面是在表单中使用它：
 

@@ -36,7 +36,7 @@ const ergodicDirectory = async (dirPath) => {
     }
   } catch (err) {
     console.warn(
-      `laravel-admin-docs-cn: failed to rewrite frontmatter for titles.\n ${err}!`
+      `elegant-admin-docs-cn: failed to rewrite frontmatter for titles.\n ${err}!`
     )
   }
 }

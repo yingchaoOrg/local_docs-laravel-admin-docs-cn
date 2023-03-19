@@ -33,7 +33,7 @@ $grid->expandFilter();
 $filter->expand();
 ```
 
-效果参考[Demo](http://demo.laravel-admin.org/posts)
+效果参考[Demo](http://demo.elegant-admin.org/posts)
 
 ## 定义查询范围 {#定义查询范围}
 
@@ -59,7 +59,7 @@ $filter->scope('trashed', '被软删除的数据')->onlyTrashed();
 
 `scope`方法第一个参数为查询的key, 会出现的url参数中，第二个参数是下拉菜单项的label, 如果不填，第一个参数会作为label显示
 
-`scope`方法可以链式调用任何`eloquent`查询条件，效果参考[Demo](http://demo.laravel-admin.org/posts)
+`scope`方法可以链式调用任何`eloquent`查询条件，效果参考[Demo](http://demo.elegant-admin.org/posts)
 
 ## 查询类型 {#查询类型}
 
@@ -396,7 +396,7 @@ $filter->column(1/2, function ($filter) {
 column`方法的第一个参数设置列宽度，可以设置为比例`1/2`或`0.5`，或者bootstrap的栅格列宽度比如`6`，如果三列的话可以设置为`1/3`或者`4
 ```
 
-效果参考[DEMO](http://demo.laravel-admin.org/posts)
+效果参考[DEMO](http://demo.elegant-admin.org/posts)
 
 ![wx20180909-211708](https://user-images.githubusercontent.com/1479100/45264860-c9865f00-b475-11e8-8418-a3bdb2a834ab.png)
 
@@ -459,6 +459,6 @@ $group->startWith();
 $group->endWith();
 ```
 
-效果参考[DEMO](http://demo.laravel-admin.org/posts)
+效果参考[DEMO](http://demo.elegant-admin.org/posts)
 
 ![wx20180909-212049](https://user-images.githubusercontent.com/1479100/45264980-77463d80-b477-11e8-917b-3495a32f018e.png)

@@ -32,7 +32,7 @@ $grid->header(function ($query) {
 });
 ```
 
-然后使用图表插件[chartjs](https://github.com/laravel-admin-extensions/chartjs)，来构建图表, 视图文件`resources/views/admin/chart/gender.blade.php`如下
+然后使用图表插件[chartjs](https://github.com/elegant-admin-extensions/chartjs)，来构建图表, 视图文件`resources/views/admin/chart/gender.blade.php`如下
 
 ```html
 <canvas id="doughnut" width="200" height="200"></canvas>

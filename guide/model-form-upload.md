@@ -51,7 +51,7 @@ $form->image($column[, $label])->thumbnail([
 ```php
 class Photo extends Model
 {
-    use \Encore\Admin\Traits\Resizable;
+    use \Elegant\Admin\Traits\Resizable;
 }
 
 // To access thumbnail
@@ -243,7 +243,7 @@ $form->image('picture')->name(function ($file) {
 ],
 ```
 
-然后修改`laravel-admin`的上传配置，打开`config/admin.php`找到：
+然后修改`elegant-admin`的上传配置，打开`config/admin.php`找到：
 
 ```php
 'upload'  => [

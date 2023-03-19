@@ -4,25 +4,25 @@
 since v1.6.0
 :::
 
-`laravel-admin`支持安装扩展工具来帮助丰富你的后台功能，目前在https://github.com/laravel-admin-extensions下面已经有了几十个扩展可供安装使用。
+`elegant-admin`支持安装扩展工具来帮助丰富你的后台功能，目前在https://github.com/elegant-admin-extensions下面已经有了几十个扩展可供安装使用。
 
-如果大家在使用的过程中有在`laravel-admin`的基础上添加一些自己的功能或者组件，不妨做成一个`laravel-admin`扩展，这样可以给其它`laravel-admin`使用者提供帮助，并且在其它人的使用反馈中的提升扩展的质量。
+如果大家在使用的过程中有在`elegant-admin`的基础上添加一些自己的功能或者组件，不妨做成一个`elegant-admin`扩展，这样可以给其它`elegant-admin`使用者提供帮助，并且在其它人的使用反馈中的提升扩展的质量。
 
-这篇文档将会以开发一个`phpinfo`的扩展为例，一步一步的开发一个扩展，并且发布给他人使用，最终的效果参考[phpinfo](http://demo.laravel-admin.org/phpinfo)
+这篇文档将会以开发一个`phpinfo`的扩展为例，一步一步的开发一个扩展，并且发布给他人使用，最终的效果参考[phpinfo](http://demo.elegant-admin.org/phpinfo)
 
 ## 创建composer包 {#创建composer包}
 
-`laravel-admin`的包将会用composer安装，所以先要创建一个composer包，如果你安装了`v1.6`或者`dev-master`版本，可以是用内置的`admin:extend`命令来生成一个扩展的骨架
+`elegant-admin`的包将会用composer安装，所以先要创建一个composer包，如果你安装了`v1.6`或者`dev-master`版本，可以是用内置的`admin:extend`命令来生成一个扩展的骨架
 
 ::: tip Notice
 运行命令的时候，可能会提示输入一个目录来存放你的扩展文件，你可以在`config/admin.php`里面增加一个配置`'extension_dir' => admin_path('extensions'),`，这样扩展文件将会存放在`app/Admin/extensions`目录下,当然你也可以放在任何其它目录
 :::
 
 ```bash
-php artisan admin:extend laravel-admin-ext/phpinfo --namespace=Encore\\PHPInfo
+php artisan admin:extend elegant-admin-ext/phpinfo --namespace=Elegant\\PHPInfo
 ```
 
-其中`laravel-admin-ext/phpinfo`是包名，`namespace`选项是这个包使用的顶级命名空间，运行这个命令之后, 将会在在config/admin.php中设置的扩展目录中生成目录`laravel-admin-ext/phpinfo`和下面的文件结构
+其中`elegant-admin-ext/phpinfo`是包名，`namespace`选项是这个包使用的顶级命名空间，运行这个命令之后, 将会在在config/admin.php中设置的扩展目录中生成目录`elegant-admin-ext/phpinfo`和下面的文件结构
 
 ```bash
     ├── LICENSE
@@ -49,7 +49,7 @@ php artisan admin:extend laravel-admin-ext/phpinfo --namespace=Encore\\PHPInfo
 
 ## 功能开发 {#功能开发}
 
-这个扩展的功能主要用来将PHP中的`phpinfo`函数所显示的页面，集成进`laravel-admin`中，它将会有一个路由和一个视图文件，没有数据库文件和静态资源文件，我们可以将没有用到的文件或目录清理掉，清理之后的目录文件为：
+这个扩展的功能主要用来将PHP中的`phpinfo`函数所显示的页面，集成进`elegant-admin`中，它将会有一个路由和一个视图文件，没有数据库文件和静态资源文件，我们可以将没有用到的文件或目录清理掉，清理之后的目录文件为：
 
 ```bash
     ├── LICENSE
@@ -68,7 +68,7 @@ php artisan admin:extend laravel-admin-ext/phpinfo --namespace=Encore\\PHPInfo
                 └── PHPInfoController.php
 ```
 ::: tip Notice
-生成完扩展框架之后，你可能需要一边调试一边开发，所以可以参考下面的[本地安装](https://laravel-admin.org/docs/zh/1.x/extension-development#本地安装)，先把扩展安装进系统中，继续开发
+生成完扩展框架之后，你可能需要一边调试一边开发，所以可以参考下面的[本地安装](https://elegant-admin.org/docs/zh/1.x/extension-development#本地安装)，先把扩展安装进系统中，继续开发
 :::
 
 ## 添加路由 {#添加路由}
@@ -77,12 +77,12 @@ php artisan admin:extend laravel-admin-ext/phpinfo --namespace=Encore\\PHPInfo
 
 ```php
 <?php
-use Encore\PHPInfo\Http\Controllers\PHPInfoController;
+use Elegant\PHPInfo\Http\Controllers\PHPInfoController;
 
 Route::get('phpinfo', PHPInfoController::class.'@index');
 ```
 
-访问路径`phpinfo`，将会由`Encore\PHPInfo\Http\Controllers\PHPInfoController`控制器的`index`方法来处理这个请求。
+访问路径`phpinfo`，将会由`Elegant\PHPInfo\Http\Controllers\PHPInfoController`控制器的`index`方法来处理这个请求。
 
 ## 设置扩展属性 {#设置扩展属性}
 
@@ -91,9 +91,9 @@ Route::get('phpinfo', PHPInfoController::class.'@index');
 ```php
 <?php
 
-namespace Encore\PHPInfo;
+namespace Elegant\PHPInfo;
 
-use Encore\Admin\Extension;
+use Elegant\Admin\Extension;
 
 class PHPInfo extends Extension
 {
@@ -118,9 +118,9 @@ class PHPInfo extends Extension
 ```php
 <?php
 
-namespace Encore\PHPInfo;
+namespace Elegant\PHPInfo;
 
-use Encore\Admin\Extension;
+use Elegant\Admin\Extension;
 
 class PHPInfo extends Extension
 {
@@ -165,24 +165,24 @@ if ($views = $extension->views()) {
 ```php
 if ($this->app->runningInConsole() && $assets = $extension->assets()) {
     $this->publishes(
-        [$assets => public_path('vendor/laravel-admin-ext/phpinfo')],
+        [$assets => public_path('vendor/elegant-admin-ext/phpinfo')],
         'phpinfo'
     );
 }
 ```
 
-安装完成之后，运行`php artisan vendor:publish --provider=Encore\PHPInfo\PHPInfoServiceProvider`，文件将会复制到`public/vendor/laravel-admin-ext/phpinfo`目录中。
+安装完成之后，运行`php artisan vendor:publish --provider=Elegant\PHPInfo\PHPInfoServiceProvider`，文件将会复制到`public/vendor/elegant-admin-ext/phpinfo`目录中。
 
-我们需要在`laravel-admin`启动的时候在页面里引入这两个文件，需要在`src/PHPInfoServiceProvider.php`的`handle`方法加入下面的代码
+我们需要在`elegant-admin`启动的时候在页面里引入这两个文件，需要在`src/PHPInfoServiceProvider.php`的`handle`方法加入下面的代码
 
 ```php
-use use Encore\Admin\Admin;
+use use Elegant\Admin\Admin;
 
 ...
 
 Admin::booting(function () {
-    Admin::js('vendor/laravel-admin-ext/phpinfo/foo.js');
-    Admin::css('vendor/laravel-admin-ext/phpinfo/bar.css');
+    Admin::js('vendor/elegant-admin-ext/phpinfo/foo.js');
+    Admin::css('vendor/elegant-admin-ext/phpinfo/bar.css');
 });
 ```
 
@@ -190,15 +190,15 @@ Admin::booting(function () {
 
 ## 代码逻辑开发 {#代码逻辑开发}
 
-这个扩展的逻辑是将`phpinfo`函数显示的PHP配置数据提取出来, 然后渲染新的视图渲染输出。在这一步，参考了[nova-phpinfo](https://github.com/davidpiesse/nova-phpinfo)的核心代码, 修改后的代码参考[PHPInfo.php](https://github.com/laravel-admin-extensions/phpinfo/blob/master/src/PHPInfo.php#L19-L50)，
+这个扩展的逻辑是将`phpinfo`函数显示的PHP配置数据提取出来, 然后渲染新的视图渲染输出。在这一步，参考了[nova-phpinfo](https://github.com/davidpiesse/nova-phpinfo)的核心代码, 修改后的代码参考[PHPInfo.php](https://github.com/elegant-admin-extensions/phpinfo/blob/master/src/PHPInfo.php#L19-L50)，
 
 接下来就是在控制器中通过调用`PHPInfo::toCollection`方法获取phpinfo的配置数据，然后渲染到视图里面，在这个扩展中，我省略了控制器这一步，直接在路由文件`routes/web.php`配置中渲染视图输出
 
 ```php
 <?php
 
-use Encore\Admin\Layout\Content;
-use Encore\PHPInfo\PHPInfo;
+use Elegant\Admin\Layout\Content;
+use Elegant\PHPInfo\PHPInfo;
 
 $path = PHPInfo::config('path', 'phpinfo');
 
@@ -212,7 +212,7 @@ Route::get($path, function (Content $content, PHPInfo $info) {
 });
 ```
 
-这样一个完整的扩展就开发完成了，最终完整的代码可以参考[phpinfo](https://github.com/laravel-admin-extensions/phpinfo)
+这样一个完整的扩展就开发完成了，最终完整的代码可以参考[phpinfo](https://github.com/elegant-admin-extensions/phpinfo)
 
 ## 修改 composer.json & README.md {#修改composer.json&README.md}
 
@@ -232,15 +232,15 @@ Route::get($path, function (Content $content, PHPInfo $info) {
 "repositories": [
     {
         "type": "path",
-        "url": "app/Admin/extensions/laravel-admin-ext/phpinfo"
+        "url": "app/Admin/extensions/elegant-admin-ext/phpinfo"
     }
 ]
 ```
 
-然后运行`composer require laravel-admin-ext/phpinfo`完成安装，如果有静态文件需要发布，运行下面的命令
+然后运行`composer require elegant-admin-ext/phpinfo`完成安装，如果有静态文件需要发布，运行下面的命令
 
 ```bash
-php artisan vendor:publish --provider=Encore\PHPInfo\PHPInfoServiceProvider
+php artisan vendor:publish --provider=Elegant\PHPInfo\PHPInfoServiceProvider
 ```
 
 这样就完成了安装，打开`http://localhost/admin/phpinfo`访问这个扩展
@@ -281,18 +281,18 @@ git tag 0.0.1 && git push --tags
 
 发布完成之后就可以通过composer安装你的扩展了
 
-#### 加入到https://github.com/laravel-admin-extensions
+#### 加入到https://github.com/elegant-admin-extensions
 
-如果想把你开发的扩展加入到[laravel-admin-extensions](https://github.com/laravel-admin-extensions)中，欢迎用各种方式联系我，这样可以让更多人看到并使用你开发的工具。
+如果想把你开发的扩展加入到[elegant-admin-extensions](https://github.com/elegant-admin-extensions)中，欢迎用各种方式联系我，这样可以让更多人看到并使用你开发的工具。
 
 ## 总结 {#总结}
 
-在`Laravel nova`发布的不到一个月的时间里，就已经有了上百个扩展，虽然`laravel-admin`在很久之前就已经支持扩展的开发，但是由于文档的不足和缺乏时间来推动，所以这一块的功能一直没有怎么发展
+在`Laravel nova`发布的不到一个月的时间里，就已经有了上百个扩展，虽然`elegant-admin`在很久之前就已经支持扩展的开发，但是由于文档的不足和缺乏时间来推动，所以这一块的功能一直没有怎么发展
 
-我希望通过这篇文档，大家把自己在`laravel-admin`的使用过程中开发出来的功能, 开发成扩展沉淀下来，`laravel-admin`需要更多人的参与才能形成更好的生态系统
+我希望通过这篇文档，大家把自己在`elegant-admin`的使用过程中开发出来的功能, 开发成扩展沉淀下来，`elegant-admin`需要更多人的参与才能形成更好的生态系统
 
 另外大家如果有好的idea，也不妨分享出来，其它有时间有精力的同学或许可以和你一起实现它。
 
 ::: tip Notice
-不久的将来，`laravel-admin`将会尝试参考[fastadmin](https://www.fastadmin.net/)的方式，将部分扩展组件商业化, 欢迎大家参与
+不久的将来，`elegant-admin`将会尝试参考[fastadmin](https://www.fastadmin.net/)的方式，将部分扩展组件商业化, 欢迎大家参与
 :::

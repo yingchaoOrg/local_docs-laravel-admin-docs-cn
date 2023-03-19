@@ -1,5 +1,5 @@
 export function fetchReleaseTag() {
-  return fetch('https://api.github.com/repos/z-song/laravel-admin/releases/latest')
+  return fetch('https://api.github.com/repos/elegant-admin/provider/releases/latest')
     .then((res) => res.json())
     .then((json) => json.tag_name ?? '')
     .then(releaseTag => {

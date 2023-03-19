@@ -153,7 +153,7 @@ $form->radioCard($column[, $label])->options(['m' => 'Female', 'f'=> 'Male'])->d
 
 ![checkbox](https://user-images.githubusercontent.com/1479100/82288312-cd051400-99d4-11ea-86cb-dc1f36c1f1a5.png)
 
-`checkbox`能处理两种数据存储情况，参考[多选](https://laravel-admin.org/docs/zh/1.x/model-form-fields#多选)
+`checkbox`能处理两种数据存储情况，参考[多选](https://elegant-admin.org/docs/zh/1.x/model-form-fields#多选)
 
 `options()`方法用来设置选择项:
 
@@ -559,13 +559,13 @@ $form->slider($column[, $label])->options([
 
 | 扩展        | URL                                                     |
 | ----------- | ------------------------------------------------------- |
-| wangEditor  | https://github.com/laravel-admin-extensions/wangEditor  |
-| wangEditor2 | https://github.com/laravel-admin-extensions/wangEditor2 |
-| UEditor     | https://github.com/laravel-admin-extensions/UEditor     |
-| Summernote  | https://github.com/laravel-admin-extensions/summernote  |
-| Quill       | https://github.com/laravel-admin-extensions/quill       |
-| CKEditor    | https://github.com/laravel-admin-extensions/ckeditor    |
-| Simditor    | https://github.com/laravel-admin-extensions/simditor    |
+| wangEditor  | https://github.com/elegant-admin-extensions/wangEditor  |
+| wangEditor2 | https://github.com/elegant-admin-extensions/wangEditor2 |
+| UEditor     | https://github.com/elegant-admin-extensions/UEditor     |
+| Summernote  | https://github.com/elegant-admin-extensions/summernote  |
+| Quill       | https://github.com/elegant-admin-extensions/quill       |
+| CKEditor    | https://github.com/elegant-admin-extensions/ckeditor    |
+| Simditor    | https://github.com/elegant-admin-extensions/simditor    |
 
 ## 隐藏域 {#隐藏域}
 
@@ -588,7 +588,7 @@ $form->switch($column[, $label])->states($states);
 
 ## 经纬度选择 {#经纬度选择}
 
-地图组件在v1.7.0版本之后移除，请使用[经纬度选择器插件](https://github.com/laravel-admin-extensions/latlong)代替
+地图组件在v1.7.0版本之后移除，请使用[经纬度选择器插件](https://github.com/elegant-admin-extensions/latlong)代替
 
 ## 纯显示 {#纯显示}
 

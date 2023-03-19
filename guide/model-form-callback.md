@@ -107,8 +107,6 @@ $form->saving(function ($form) {
 
 ## 删除前后 {#删除前后}
 
-> since v1.6.13, 从v1.7版本已经废弃，可使用模型的删除回调替代
-
 在删除的前后增加了两个回调`deleting`和`deleted`。
 
 可以直接抛出异常
@@ -129,7 +127,6 @@ $form->deleted(function () {
 
 ```php
 $form->deleting(function () {
-    ...
     return response()->json([
         'status'  => false,
         'message' => '删除失败，请。。',
@@ -137,7 +134,6 @@ $form->deleting(function () {
 });
 
 $form->deleted(function () {
-    ...
     return response()->json([
         'status'  => false,
         'message' => '删除失败，请。。',

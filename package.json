@@ -1,7 +1,7 @@
 {
-	"name": "laravel-admin-docs-cn",
+	"name": "elegant-admin-docs-cn",
 	"version": "1.0.0",
-	"description": "laravel-admin documentation Chinese translation.",
+	"description": "elegant-admin documentation Chinese translation.",
 	"repository": "https://github.com/vitejs/docs-cn",
 	"author": "xiaozhi",
 	"private": true,

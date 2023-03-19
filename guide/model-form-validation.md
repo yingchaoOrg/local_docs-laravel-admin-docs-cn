@@ -29,7 +29,7 @@ $form->text('code')->rules('required|regex:/^\d+$/|min:10', [
 $form->text('title')->rules('nullable');
 ```
 
-更多规则请参考[Validation](https://laravel.com/docs/5.5/validation).
+更多规则请参考[Validation](https://laravel.com/docs/8.x/validation).
 
 ## 创建页面规则 {#创建页面规则}
 

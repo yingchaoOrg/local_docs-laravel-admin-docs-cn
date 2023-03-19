@@ -5,28 +5,30 @@ import MarkDownItCustomAnchor from './markdown-it-custom-anchor'
 // @ts-ignore
 export default defineConfig({
   base: '/docs-cn/',
-  title: 'Laravel-Admin文档',
-  description: '一个可以快速构建后台管理的工具',
+  title: 'Elegant-Admin文档',
+  description: 'laravel-admin,laravel-admin文档,一个快速构建后台管理的工具',
   lang: 'zh-CN',
 
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/logo.png' }],
-    ['meta', { property: 'og:type', content: 'website' }],
-    ['meta', { name: 'theme-color', content: '#646cff' }],
-    [
-      'script',
-      {
-        src: 'https://cdn.usefathom.com/script.js',
-        'data-site': 'CBDFBSLI',
-        'data-spa': 'auto',
-        defer: '',
-      },
-    ],
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/docs-cn/logo.png' }],
+    // ['meta', { property: 'og:type', content: 'website' }],
+    // ['meta', { name: 'theme-color', content: '#646cff' }],
+    // [
+    //   'script',
+    //   {
+    //     src: 'https://cdn.usefathom.com/script.js',
+    //     'data-site': 'CBDFBSLI',
+    //     'data-spa': 'auto',
+    //     defer: '',
+    //   },
+    // ],
   ],
 
   locales: {
     root: { label: '简体中文' },
-    en: { label: 'English', link: 'https://elegant-admin.github.io/docs-en/' },
+    cn1: { label: '简体中文（码云）', link: 'https://elegant-admin.gitee.io/docs-cn' },
+    cn2: { label: '简体中文（GitHub）', link: 'https://elegant-admin.github.io/docs-cn' },
+    en: { label: 'English', link: 'https://elegant-admin.github.io/docs-en' },
   },
 
   vue: {
@@ -46,7 +48,7 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/z-song/laravel-admin' },
+      { icon: 'github', link: 'https://github.com/elegant-admin/provider' },
     ],
 
     algolia: {
@@ -103,14 +105,14 @@ export default defineConfig({
 
     footer: {
       copyright:
-        '本文档内容版权为 laravel-admin 所有，保留所有权利'
+        '本文档内容版权为 elegant-admin 所有，保留所有权利'
     },
 
     nav: [
       { text: '文档', link: '/guide/', activeMatch: '/guide/' },
       { text: '插件', link: 'https://github.com/laravel-admin-extensions' },
       { text: '团队', link: '/team/', activeMatch: '/team/' },
-      { text: '开发日志', link: 'https://github.com/z-song/laravel-admin/releases' },
+      { text: '发行说明', link: 'https://github.com/elegant-admin/provider/releases' },
       {
         text: 'Version',
         items: [
@@ -160,10 +162,6 @@ export default defineConfig({
             {
               text: '页面内容和布局',
               link: '/guide/content-layout'
-            },
-            {
-              text: '统一回复',
-              link: '/guide/questions'
             }
           ]
         },
@@ -354,7 +352,7 @@ export default defineConfig({
           link: '/guide/widgets'
         },
         {
-          text: '用户，角色，权限',
+          text: '权限控制',
           link: '/guide/permission'
         },
         {

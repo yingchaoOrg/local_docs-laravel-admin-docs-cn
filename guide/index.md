@@ -2,15 +2,17 @@
 
 ## 总览 {#总览}
 
+elegant-admin 是基于[laravel-admin](https://github.com/z-song/laravel-admin) 的升级版，具体请查看[版本说明](https://github.com/elegant-admin/provider/releases)
+
 laravel-admin 是一个可以快速帮你构建后台管理的工具，它提供的页面组件和表单元素等功能，能帮助你使用很少的代码就实现功能完善的后台管理功能。
 
 ::: tip 注意
-当前版本(v1.7.*)需要安装PHP 7+和Laravel 5.5+|6.x
+当前版本(v1.8.*)需要安装PHP 7+和Laravel 8.*
 :::
 
 ## 特性 {#特性}
 
-- 内置用户和权限系统
+- 内置路由控制基于角色的权限系统
 - `model-grid`支持快速构建数据表格
 - `model-form`支持快速构建数据表单
 - `model-tree`支持快速构建树状数据
@@ -23,22 +25,9 @@ laravel-admin 是一个可以快速帮你构建后台管理的工具，它提供
 - 多种常用web组件
 - 支持本地和oss文件上传
 
-## 谁在使用 {#谁在使用}
-
-|                                                              |                                           |                                                |                                                  |                                                  |                                                 |
-| ------------------------------------------------------------ | ----------------------------------------- | ---------------------------------------------- | ------------------------------------------------ | ------------------------------------------------ | ----------------------------------------------- |
-| [腾讯](https://www.tencent.com/)                             | [百度](https://www.baidu.com/)            | [灵机文化](https://www.linghit.com/)           | [科零](http://www.trc-china.com/)                | [成都聚米粒](http://www.jmltek.net/)             | [深圳墨兔科技](https://mall-to.com/)            |
-| [模拟考试助手](https://okrd.cn/)                             | [秋点科技](https://www.qiudian.net/)      | [上海彼邑网络科技](http://www.beats.net.cn/)   | [高灯科技创新中心](https://ai.wetax.com.cn/)     | [北京牙联惠](http://www.yalianhui.com/)          | [高策智慧零售数据平台](https://www.golcer.com/) |
-| [小于号网络科技](http://www.7rcv.com/)                       | [中国光大集团](http://www.ebchina.com/)   | [苏州通润驱动设备](http://www.torindrive.com/) | [上海钜石信息科技](https://www.rockfintech.com/) | [广州量子云科技](https://www.quanta-nimbus.com/) | [珠海谷猫科技](http://www.igumao.com/)          |
-| [程序员精选导航](http://daohang.mianshia.com/)               | [四川文鼎文化科技](http://www.iwdjy.com/) | [支付猫](https://www.paycats.cn/)              | [馨科智科技（深圳）](https://www.xinkezhi.com/)  | [八兔软件科技（上海）](http://www.brtoo.cn/)     | [四川卓谷科技](https://www.zoogooo.com/)        |
-| [福州辑思文化](http://editideas.cn/)                         | [美味学院](http://www.meiweixueyuan.cn/)  | [深圳企程网络](http://hiqicheng.com/)          | [北京路酷出行](http://www.lukus.cn/)             | [哈尔滨银行](http://www.hrbcb.com.cn/)           | [上海二三四五网络科技](http://www.2345.com/)    |
-| [贵州国卫信安科技](https://laravel-admin.org/docs/zh/1.x/README#) | [Y2B downloader](https://www.y2b.xyz/)    | [无锡元田信息科技](https://yuantian.tech/)     | [山东潍坊玖樱传媒](https://jfcat.cn/)            | [重庆初心文化传媒](https://www.fheart.cn/)       | [广西智汇云网络科技](http://www.gxsww.com/)     |
-| [江苏艾克斯](https://laravel-admin.org/docs/zh/1.x/README#)  | [成都希格斯网络科技](http://higgses.com/) | [十年之约项目组](https://www.foreverblog.cn/)  | [五宫格信息科技](https://www.wggai.com/)         | [北京云中融信](https://www.rongcloud.cn/)        | [湖南希文网络科技](http://shanyue88.com/)       |
-| [广州数佰特信息](http://surebetter.cn/)                      | [厦门鹅卵石网络](http://www.elscare.com/) | [上海拾芳信息](https://shifang.tech/)          | [长沙欣诺网络](http://www.csxino.cn/)            | [陕西唯科网络](https://www.wkwang.cn/)           | [OranMe Ltd.](https://oran.me/)
-
 ## 依赖 {#依赖}
 
-laravel-admin 基于以下组件或者服务:
+elegant-admin 基于以下组件或者服务:
 
 - [Laravel](https://laravel.com/)
 - [AdminLTE](https://almsaeedstudio.com/)
@@ -57,14 +46,8 @@ laravel-admin 基于以下组件或者服务:
 
 ## 交流 {#交流}
 
-QQ群:278455482(已满)、635881319(已满)、533701919(已满)、821831984(已满)
+QQ群:167834740
 
-## 支持 {#支持}
+## License {#License}
 
-如果觉得这个项目帮你节约了时间，不妨支持一下;)
-
-![-1](https://cloud.githubusercontent.com/assets/1479100/23287423/45c68202-fa78-11e6-8125-3e365101a313.jpg)
-
-#### License {#License}
-
-`laravel-admin` is licensed under [The MIT License (MIT)](https://laravel-admin.org/docs/zh/1.x/LICENSE).
+`elegant-admin` is licensed under [The MIT License (MIT)](https://elegant-admin.org/docs/zh/1.x/LICENSE).

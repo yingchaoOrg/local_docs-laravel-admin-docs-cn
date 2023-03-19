@@ -5,7 +5,7 @@
 在`app/Admin/bootstrap.php`加入下面的代码来设置网站的favicon：
 
 ```php
-use Encore\Admin\Admin;
+use Elegant\Admin\Admin;
 
 Admin::favicon('/your/favicon/path');
 ```
@@ -30,7 +30,7 @@ Admin::js('https://cdn.bootcss.com/vue/2.6.10/vue.min.js');
 如果你要在当前的页面加入一段JS脚本代码，可以使用`Admin::script()`
 
 ```php
-use Encore\Admin\Admin;
+use Elegant\Admin\Admin;
 
 Admin::script('console.log("hello world");');
 ```
@@ -42,7 +42,7 @@ Admin::script('console.log("hello world");');
 如果你要在当前的页面加入一段CSS代码，可以使用`Admin::style()`
 
 ```php
-use Encore\Admin\Admin;
+use Elegant\Admin\Admin;
 
 Admin::style('.form-control {margin-top: 10px;}');
 ```
@@ -54,7 +54,7 @@ Admin::style('.form-control {margin-top: 10px;}');
 如果你要在当前的页面加入一段HTML代码，可以使用`Admin::html()`
 
 ```php
-use Encore\Admin\Admin;
+use Elegant\Admin\Admin;
 
 Admin::html('<template>...</template>');
 ```
@@ -85,11 +85,11 @@ Admin::html('<template>...</template>');
 $ php artisan admin:minify
 
 JS and CSS are successfully minified:
-  vendor/laravel-admin/laravel-admin.min.js
-  vendor/laravel-admin/laravel-admin.min.css
+  vendor/elegant-admin/elegant-admin.min.js
+  vendor/elegant-admin/elegant-admin.min.css
 
 Manifest successfully generated:
-  vendor/laravel-admin/minify-manifest.json
+  vendor/elegant-admin/minify-manifest.json
 ```
 
 这个命令会生成三个文件，查看后台页面源码就可以看到效果了。
@@ -102,9 +102,9 @@ Manifest successfully generated:
 $ php artisan admin:minify --clear
 
 Following files are cleared:
-  vendor/laravel-admin/laravel-admin.min.js
-  vendor/laravel-admin/laravel-admin.min.css
-  vendor/laravel-admin/minify-manifest.json
+  vendor/elegant-admin/elegant-admin.min.js
+  vendor/elegant-admin/elegant-admin.min.css
+  vendor/elegant-admin/minify-manifest.json
 ```
 
 ## 配置 {#配置}

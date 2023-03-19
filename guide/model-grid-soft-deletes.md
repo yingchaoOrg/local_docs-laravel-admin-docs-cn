@@ -59,7 +59,7 @@ $grid->filter(function () {
 
 namespace App\Admin\Actions\Post;
 
-use Encore\Admin\Actions\RowAction;
+use Elegant\Admin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 
 class Restore extends RowAction
@@ -103,7 +103,7 @@ $grid->actions(function ($actions) {
 
 namespace App\Admin\Actions\Post;
 
-use Encore\Admin\Actions\BatchAction;
+use Elegant\Admin\Actions\BatchAction;
 use Illuminate\Database\Eloquent\Collection;
 
 class BatchRestore extends BatchAction
