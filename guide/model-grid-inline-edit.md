@@ -8,53 +8,29 @@
 
 用`editable`方法，可以让你在表格中点击数据，在弹出的对话框里面编辑保存数据，使用方法如下
 
-## text输入 {#text输入}
-
 ```php
+// text输入
 $grid->column('title')->editable();
-```
 
-## textarea输入 {#textarea输入}
-
-```php
+// textarea输入
 $grid->column('title')->editable('textarea');
-```
 
-## select选择 {#select选择}
-
-第二个参数是select选择的选项
-
-```php
+// select选择，第二个参数是select选择的选项
 $grid->column('title')->editable('select', [1 => 'option1', 2 => 'option2', 3 => 'option3']);
-```
 
-## 日期选择 {#日期选择}
-
-```php
+// 日期选择
 $grid->column('birth')->editable('date');
-```
 
-## 日期时间选择 {#日期时间选择}
-
-```php
+// 日期时间选择
 $grid->column('published_at')->editable('datetime');
-```
 
-## 年份选择 {#年份选择}
-
-```php
+// 年份选择
 $grid->column('year')->editable('year');
-```
 
-## 月份选择 {#月份选择}
-
-```php
+// 月份选择
 $grid->column('month')->editable('month');
-```
 
-## 日选择 {#日选择}
-
-```php
+// 日选择
 $grid->column('day')->editable('day');
 ```
 
@@ -75,7 +51,7 @@ $states = [
 $grid->column('status')->switch($states);
 ```
 
-## switchGroup 开关组 {#switchGroup 开关组}
+## switchGroup开关组 {#switchGroup开关组}
 
 > 注意：在`grid`中对某些字段设置了`switch`，同时需要在`form`里面对这些字段设置同样的`switch`
 

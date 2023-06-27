@@ -32,7 +32,7 @@ $show->contents()->as(function ($content) {
 $show->avatar()->image();
 ```
 
-`image()`方法的参数参考[Field::image()](https://github.com/z-song/elegant-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L200)
+`image()`方法的参数参考[Field::image()](https://github.com/z-song/laravel-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L200)
 
 ## file {#file}
 
@@ -42,7 +42,7 @@ $show->avatar()->image();
 $show->avatar()->file();
 ```
 
-`file()`方法的参数参考[Field::file()](https://github.com/z-song/elegant-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L235)
+`file()`方法的参数参考[Field::file()](https://github.com/z-song/laravel-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L235)
 
 ## link {#link}
 
@@ -52,7 +52,7 @@ $show->avatar()->file();
 $show->homepage()->link();
 ```
 
-`link()`方法的参数参考[Field::link()](https://github.com/z-song/elegant-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L289)
+`link()`方法的参数参考[Field::link()](https://github.com/z-song/laravel-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L289)
 
 ## label {#label}
 
@@ -62,7 +62,7 @@ $show->homepage()->link();
 $show->tag()->label();
 ```
 
-`label()`方法的参数参考[Field::label()](https://github.com/z-song/elegant-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L305)
+`label()`方法的参数参考[Field::label()](https://github.com/z-song/laravel-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L305)
 
 ## badge {#badge}
 
@@ -72,7 +72,7 @@ $show->tag()->label();
 $show->rate()->badge();
 ```
 
-`badge()`方法的参数参考[Field::badge()](https://github.com/z-song/elegant-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L325)
+`badge()`方法的参数参考[Field::badge()](https://github.com/z-song/laravel-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L325)
 
 ## json {#json}
 
@@ -82,7 +82,7 @@ $show->rate()->badge();
 $show->extra()->json();
 ```
 
-`json()`方法的参数参考[Field::json()](https://github.com/z-song/elegant-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L343)
+`json()`方法的参数参考[Field::json()](https://github.com/z-song/laravel-admin/blob/8c1888392b063a56b0f096d3bb2a7c72aa846f31/src/Show/Field.php#L343)
 
 ## using {#using}
 

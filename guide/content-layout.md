@@ -2,7 +2,7 @@
 
 后台页面的整体布局如下:
 
-```shell
+```php
 ---------------------------------------
 |                头部                  |
 |-------------------------------------|
@@ -20,9 +20,9 @@
 
 ## 页面内容 {#页面内容}
 
-`elegant-admin`的布局可参考后台首页的布局文件[HomeController.php](https://github.com/elegant-admin/provider/blob/main/src/Console/stubs/HomeController.stub)的`index()`方法。
+`laravel-admin`的布局可参考后台首页的布局文件[HomeController.php](https://github.com/z-song/laravel-admin/blob/master/src/Console/stubs/HomeController.stub)的`index()`方法。
 
-`Elegant\Admin\Layout\Content`类用来实现内容区的布局。`Content::body($content)`方法用来添加页面内容：
+`Encore\Admin\Layout\Content`类用来实现内容区的布局。`Content::body($content)`方法用来添加页面内容：
 
 一个简单的后台页面代码如下：
 
@@ -66,7 +66,7 @@ public function index(Content $content)
 
 ```php
 use App\Models\Product;
-use Elegant\Admin\Layout\Content;
+use Encore\Admin\Layout\Content;
 
 class ProductController
 {
@@ -83,7 +83,7 @@ class ProductController
 
 然后定义视图文件`resources/product/show.blade.php`:
 
-```html
+```php
 <div class="box box-solid">
     <div class="box-header with-border">
         <i class="fa fa-text-width"></i>
@@ -100,15 +100,15 @@ class ProductController
 </div>
 ```
 
-`elegant-admin`使用`adminlte2`作为前端框架，视图文件的样式，可以参考[adminte](https://adminlte.io/themes/AdminLTE/pages/UI/general.html)编写。
+`laravel-admin`使用`adminlte2`作为前端框架，视图文件的样式，可以参考[adminte](https://adminlte.io/themes/AdminLTE/pages/UI/general.html)编写。
 
 ## 布局 {#布局}
 
-`elegant-admin`的布局使用bootstrap的栅格系统，每行的长度是12，下面是几个简单的布局示例：
+`laravel-admin`的布局使用bootstrap的栅格系统，每行的长度是12，下面是几个简单的布局示例：
 
 添加一行内容:
 
-```shell
+```php
 $content->row('hello');
 
 ---------------------------------
@@ -123,7 +123,7 @@ $content->row('hello');
 
 行内添加多列：
 
-```shell
+```php
 $content->row(function(Row $row) {
     $row->column(4, 'foo');
     $row->column(4, 'bar');
@@ -154,7 +154,7 @@ $content->row(function(Row $row) {
 
 列中添加行：
 
-```shell
+```php
 $content->row(function (Row $row) {
 
     $row->column(4, 'xxx');
@@ -177,7 +177,7 @@ $content->row(function (Row $row) {
 
 列中添加行, 行内再添加列：
 
-```shell
+```php
 $content->row(function (Row $row) {
 
     $row->column(4, 'xxx');

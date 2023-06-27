@@ -7,7 +7,7 @@
 比如你需要在所有的表格中，禁用掉某些操作，可以在`app/Admin/bootstrap.php`加入下面的代码：
 
 ```php
-use Elegant\Admin\Grid;
+use Encore\Admin\Grid;
 
 Grid::init(function (Grid $grid) {
 

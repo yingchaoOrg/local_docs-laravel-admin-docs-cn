@@ -1,6 +1,6 @@
 # 基于数据模型的表格
 
-`Elegant\Admin\Grid`类用于生成基于数据模型的表格，下面以`movies`表为例：
+`Encore\Admin\Grid`类用于生成基于数据模型的表格，下面以`movies`表为例：
 
 ```sql
 movies
@@ -19,9 +19,9 @@ movies
 
 ```php
 use App\Models\Movie;
-use Elegant\Admin\Grid;
+use Encore\Admin\Grid;
 
-$grid = new Grid(new $this->model);
+$grid = new Grid(new Movie);
 
 // 第一列显示id字段，并将这一列设置为可排序列
 $grid->column('id', 'ID')->sortable();
@@ -75,9 +75,7 @@ $grid->column('username', '用户名');
 $grid->column('profile->mobile', '手机号');
 
 // 添加多列
-$grid->columns('email', 'username');
-
-//...
+$grid->columns('email', 'username' ...);
 ```
 
 ## 添加数据查询条件 {#添加数据查询条件}
@@ -97,7 +95,7 @@ $grid->model()->orderBy('id', 'desc');
 
 $grid->model()->take(100);
 
-//...
+...
 ```
 
 `$grid->model()`后面可以直接调用`Eloquent`的查询方法来给表格数据添加查询条件，更多查询方法参考[文档](https://laravel.com/docs/5.8/queries).
@@ -232,7 +230,7 @@ class Profile extends Model
 通过下面的代码可以关联在一个grid里面:
 
 ```php
-$grid = new Grid(new $this->model);
+$grid = new Grid(new User);
 
 $grid->column('id', 'ID')->sortable();
 
@@ -286,7 +284,7 @@ class Comment extends Model
 通过下面的代码可以让两个模型在grid里面互相关联:
 
 ```php
-$grid = new Grid(new $this->model);
+$grid = new Grid(new Post);
 
 $grid->column('id', 'id')->sortable();
 $grid->column('title');
@@ -298,9 +296,7 @@ $grid->column('comments', '评论数')->display(function ($comments) {
 });
 
 return $grid;
-```
-```php
-$grid = new Grid(new $this->model);
+$grid = new Grid(new Comment);
 $grid->column('id');
 $grid->column('post.title');
 $grid->column('content');
@@ -352,7 +348,7 @@ class Role extends Model
 通过下面的代码可以让两个模型在grid里面互相关联:
 
 ```php
-$grid = new Grid(new $this->model);
+$grid = new Grid(new User);
 
 $grid->column('id', 'ID')->sortable();
 $grid->column('username');

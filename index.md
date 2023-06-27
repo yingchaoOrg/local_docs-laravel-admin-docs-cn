@@ -1,16 +1,16 @@
 ---
 layout: home
 
-title: Elegant-Admin
+title: Laravel-Admin
 titleTemplate: 一个可以快速构建后台管理的工具
 
 hero:
-  name: Elegant-Admin
+  name: Laravel-Admin
   text: 一个可以快速构建后台管理的工具
   tagline: 它提供的页面组件和表单元素等功能，能帮助你使用很少的代码就实现功能完善的后台管理功能
   image:
     src: /logo.png
-    alt: elegant-admin
+    alt: laravel-admin
   actions:
     - theme: brand
       text: 开始
@@ -38,8 +38,8 @@ features:
 ---
 
 <script setup>
-import { onMounted } from 'vue'
-import { fetchReleaseTag } from './.vitepress/utils/fetchReleaseTag.js'
+import { onMounted } from 'vue';
+import { fetchReleaseTag } from './.vitepress/utils/fetchReleaseTag.js';
 
 onMounted(() => {
   fetchReleaseTag()

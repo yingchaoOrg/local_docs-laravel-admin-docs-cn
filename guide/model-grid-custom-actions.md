@@ -27,7 +27,7 @@ php artisan admin:action Post\\Replicate --grid-row --name="复制"
 
 namespace App\Admin\Actions\Post;
 
-use Elegant\Admin\Actions\RowAction;
+use Encore\Admin\Actions\RowAction;
 use Illuminate\Database\Eloquent\Model;
 
 class Replicate extends RowAction
@@ -79,9 +79,9 @@ $grid->actions(function ($actions) {
 ```php
 <?php
 
-namespace Elegant\Admin\Grid\Actions;
+namespace Encore\Admin\Grid\Actions;
 
-use Elegant\Admin\Actions\RowAction;
+use Encore\Admin\Actions\RowAction;
 
 class Comments extends RowAction
 {
@@ -99,7 +99,7 @@ class Comments extends RowAction
 
 在`href`方法中可以用`$this->getResource()`，获取当前的资源根路径，可以用`$this->getKey()`获取当前行的主键值
 
-## 批量操作 {#批量操作1}
+## 批量操作 {#批量操作}
 
 假设你还要增加一个`批量复制`的操作，先运行下面的命令生成批量操作类：
 
@@ -114,7 +114,7 @@ php artisan admin:action Post\\BatchReplicate --grid-batch --name="批量复制"
 
 namespace App\Admin\Actions\Post;
 
-use Elegant\Admin\Actions\BatchAction;
+use Encore\Admin\Actions\BatchAction;
 use Illuminate\Database\Eloquent\Collection;
 
 class BatchReplicate extends BatchAction
@@ -163,7 +163,7 @@ $grid->batchActions(function ($batch) {
 
 点击操作的时候，经常会需要进行一些确认或者填写额外的数据，可以有下面两种方式来实现互动：
 
-## 弹出对话框 {#弹出对话框]
+## 弹出对话框 {#弹出对话框}
 
 比如上面的复制操作，点击之后需要弹出一个对话框来进行确认操作，在类中增加一个dialog方法即可：
 
@@ -283,7 +283,7 @@ public function form()
 
 自定义操作，除了可以显示在数据表格的操作列和批量操作的下拉菜单中，还可以显示在表格的工具区域中（筛选按钮这一行）
 
-## 批量操作 {#批量操作2}
+## 表格批量操作 {#表格批量操作}
 
 如果你想把批量操作的按钮放到工具区域而不是批量操作的下拉菜单中，需要对操作类做一些修改：
 
@@ -292,7 +292,7 @@ public function form()
 
 namespace App\Admin\Actions\Post;
 
-use Elegant\Admin\Actions\BatchAction;
+use Encore\Admin\Actions\BatchAction;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 
@@ -353,7 +353,7 @@ php artisan admin:action Post\\ImportPost --name="导入数据"
 
 namespace App\Admin\Actions\Post;
 
-use Elegant\Admin\Actions\Action;
+use Encore\Admin\Actions\Action;
 use Illuminate\Http\Request;
 
 class ImportPost extends Action
@@ -383,7 +383,7 @@ HTML;
 
 namespace App\Admin\Actions\Post;
 
-use Elegant\Admin\Actions\Action;
+use Encore\Admin\Actions\Action;
 use Illuminate\Http\Request;
 
 class ImportPost extends Action
@@ -500,7 +500,7 @@ return $this->response()->success('Success！')->timeout(3000)->refresh();
 也可以通过在模型中定义`actionAuthorize`方法来控制权限, 通过传入的操作类名，来控制操作权限
 
 ```php
-use Elegant\Admin\Grid\Actions\Delete;
+use Encore\Admin\Grid\Actions\Delete;
 
 class Post extends Model
 {
@@ -527,7 +527,7 @@ class Post extends Model
 在指定页面开启：
 
 ```php
-use Elegant\Admin\Grid\Displayers\ContextMenuActions;
+use Encore\Admin\Grid\Displayers\ContextMenuActions;
 
 $grid->setActionClass(ContextMenuActions::class);
 ```
@@ -535,7 +535,7 @@ $grid->setActionClass(ContextMenuActions::class);
 或者在`config/admin.php`添加配置全局开启：
 
 ```php
-'grid_action_class' => \Elegant\Admin\Grid\Displayers\ContextMenuActions::class,
+'grid_action_class' => \Encore\Admin\Grid\Displayers\ContextMenuActions::class,
 ```
 
 ## 旧版本兼容 {#旧版本兼容}
@@ -543,13 +543,13 @@ $grid->setActionClass(ContextMenuActions::class);
 如果是从低版本更新到`v1.7.3`及以上的版本，还可以继续使用之前自定义的操作类，但是如果要使用新版本的`行操作`，可以在`config/admin.php`添加配置全局开启：
 
 ```php
-'grid_action_class' => \Elegant\Admin\Grid\Displayers\DropdownActions::class,
+'grid_action_class' => \Encore\Admin\Grid\Displayers\DropdownActions::class,
 ```
 
 或者在每个表格中单独开启：
 
 ```php
-use Elegant\Admin\Grid\Displayers\DropdownActions;
+use Encore\Admin\Grid\Displayers\DropdownActions;
 
 $grid->setActionClass(DropdownActions::class);
 ```
@@ -566,13 +566,13 @@ $grid->setActionClass(DropdownActions::class);
 
 ```php
 // 最原始的`按钮图标`形式
-'grid_action_class' => \Elegant\Admin\Grid\Displayers\Actions::class,
+'grid_action_class' => \Encore\Admin\Grid\Displayers\Actions::class,
 
 // 使用`下拉菜单`形式
-'grid_action_class' => \Elegant\Admin\Grid\Displayers\DropdownActions::class,
+'grid_action_class' => \Encore\Admin\Grid\Displayers\DropdownActions::class,
 
 // 使用`右键菜单`形式
-'grid_action_class' => \Elegant\Admin\Grid\Displayers\ContextMenuActions::class,
+'grid_action_class' => \Encore\Admin\Grid\Displayers\ContextMenuActions::class,
 ```
 
 ## 单独配置
@@ -580,9 +580,9 @@ $grid->setActionClass(DropdownActions::class);
 也可以给每一个表格指定不同的形式
 
 ```php
-use Elegant\Admin\Grid\Displayers\Actions;
-use Elegant\Admin\Grid\Displayers\DropdownActions;
-use Elegant\Admin\Grid\Displayers\ContextMenuActions;
+use Encore\Admin\Grid\Displayers\Actions;
+use Encore\Admin\Grid\Displayers\DropdownActions;
+use Encore\Admin\Grid\Displayers\ContextMenuActions;
 
 // 最原始的`按钮图标`形式
 $grid->setActionClass(Actions::class);

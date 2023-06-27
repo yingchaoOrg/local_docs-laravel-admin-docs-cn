@@ -14,7 +14,7 @@ $grid->footer(function ($query) {
 
 其中闭包函数的参数`$query`为`\Illuminate\Database\Eloquent\Builder`类实例，可以用来执行一些自定义的查询来获取数据，下面是两个不同场景的使用举例
 
-## 头部 {#头部}
+## 头部
 
 比如要在用户数据模块的表格头部插入一个饼状图表，来显示用户性别比例，可以按照下面的方法来实现
 
@@ -32,7 +32,7 @@ $grid->header(function ($query) {
 });
 ```
 
-然后使用图表插件[chartjs](https://github.com/elegant-admin-extensions/chartjs)，来构建图表, 视图文件`resources/views/admin/chart/gender.blade.php`如下
+然后使用图表插件[chartjs](https://github.com/laravel-admin-extensions/chartjs)，来构建图表, 视图文件`resources/views/admin/chart/gender.blade.php`如下
 
 ```html
 <canvas id="doughnut" width="200" height="200"></canvas>
@@ -75,7 +75,7 @@ $(function () {
 
 ![WX20190310-195204](https://user-images.githubusercontent.com/1479100/54084635-1b993600-436e-11e9-97ab-4cb5fa5cff87.png)
 
-## 脚部 {#脚部}
+## 脚部
 
 一个比较常见的场景是在数据表格的脚部显示统计信息，比如在订单表格的脚部加入收入统计，可以参考下面的代码实现：
 

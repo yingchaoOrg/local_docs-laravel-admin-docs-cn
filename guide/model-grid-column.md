@@ -66,8 +66,6 @@ $grid->column('created_at')->sortable();
 
 这样列头部就会出现一个排序icon, 点击进行排序
 
-## 帮助方法 {#帮助方法}
-
 ## 字符串操作 {#字符串操作}
 
 如果当前里的输出数据为字符串，那么可以通过链式方法调用`Illuminate\Support\Str`的方法。
@@ -179,7 +177,7 @@ $grid->column('images')->display(function ($images) {
 在`app/Admin/bootstrap.php`加入以下代码:
 
 ```php
-use Elegant\Admin\Grid\Column;
+use Encore\Admin\Grid\Column;
 
 Column::extend('color', function ($value, $color) {
     return "<span style='color: $color'>$value</span>";
@@ -201,8 +199,8 @@ $grid->column('title')->color('#ccc');
 
 namespace App\Admin\Extensions;
 
-use Elegant\Admin\Admin;
-use Elegant\Admin\Grid\Displayers\AbstractDisplayer;
+use Encore\Admin\Admin;
+use Encore\Admin\Grid\Displayers\AbstractDisplayer;
 
 class Popover extends AbstractDisplayer
 {
@@ -231,7 +229,7 @@ EOT;
 然后在`app/Admin/bootstrap.php`注册扩展类：
 
 ```php
-use Elegant\Admin\Grid\Column;
+use Encore\Admin\Grid\Column;
 use App\Admin\Extensions\Popover;
 
 Column::extend('popover', Popover::class);

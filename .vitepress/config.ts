@@ -4,8 +4,8 @@ import MarkDownItCustomAnchor from './markdown-it-custom-anchor'
 
 // @ts-ignore
 export default defineConfig({
-  base: '/docs-cn/',
-  title: 'Elegant-Admin文档',
+  base: '/laravel-admin-docs-cn/',
+  title: 'Laravel-Admin文档',
   description: 'laravel-admin,laravel-admin文档,一个快速构建后台管理的工具',
   lang: 'zh-CN',
 
@@ -26,9 +26,9 @@ export default defineConfig({
 
   locales: {
     root: { label: '简体中文' },
-    cn1: { label: '简体中文（码云）', link: 'https://elegant-admin.gitee.io/docs-cn' },
-    cn2: { label: '简体中文（GitHub）', link: 'https://elegant-admin.github.io/docs-cn' },
-    en: { label: 'English', link: 'https://elegant-admin.github.io/docs-en' },
+    cn1: { label: '简体中文（码云）', link: 'http://explore-pu.gitee.io/laravel-admin-docs-cn' },
+    cn2: { label: '简体中文（GitHub）', link: 'http://explore-pu.github.io/laravel-admin-docs-cn' },
+    en: { label: 'English', link: 'https://explore-pu.github.io/laravel-admin-docs-en' },
   },
 
   vue: {
@@ -39,7 +39,7 @@ export default defineConfig({
     logo: '/logo.png',
 
     editLink: {
-      pattern: 'https://github.com/elegant-admin/docs-cn/edit/main/:path',
+      pattern: 'https://github.com/explore-pu/laravel-admin-docs-cn/edit/main/:path',
       text: '为此页提供修改建议',
     },
 
@@ -48,55 +48,55 @@ export default defineConfig({
     },
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/elegant-admin/provider' },
+      { icon: 'github', link: 'https://github.com/z-song/laravel-admin' },
     ],
 
-    algolia: {
-      appId: '7H67QR5P0A',
-      apiKey: 'deaab78bcdfe96b599497d25acc6460e',
-      indexName: 'vitejs',
-      searchParameters: {
-        facetFilters: ['tags:cn']
-      },
-      placeholder: '搜索文档',
-      translations: {
-        button: {
-          buttonText: '搜索'
-        },
-        modal: {
-          searchBox: {
-            resetButtonTitle: '清除查询条件',
-            resetButtonAriaLabel: '清除查询条件',
-            cancelButtonText: '取消',
-            cancelButtonAriaLabel: '取消'
-          },
-          startScreen: {
-            recentSearchesTitle: '搜索历史',
-            noRecentSearchesText: '没有搜索历史',
-            saveRecentSearchButtonTitle: '保存到搜索历史',
-            removeRecentSearchButtonTitle: '从搜索历史中移除',
-            favoriteSearchesTitle: '收藏',
-            removeFavoriteSearchButtonTitle: '从收藏中移除'
-          },
-          errorScreen: {
-            titleText: '无法获取结果',
-            helpText: '你可能需要检查你的网络连接'
-          },
-          footer: {
-            selectText: '选择',
-            navigateText: '切换',
-            closeText: '关闭',
-            searchByText: '搜索供应商'
-          },
-          noResultsScreen: {
-            noResultsText: '无法找到相关结果',
-            suggestedQueryText: '你可以尝试查询',
-            reportMissingResultsText: '你认为这个查询应该有结果？',
-            reportMissingResultsLinkText: '向我们反馈'
-          }
-        }
-      },
-    },
+    // algolia: {
+    //   appId: '7H67QR5P0A',
+    //   apiKey: 'deaab78bcdfe96b599497d25acc6460e',
+    //   indexName: 'vitejs',
+    //   searchParameters: {
+    //     facetFilters: ['tags:cn']
+    //   },
+    //   placeholder: '搜索文档',
+    //   translations: {
+    //     button: {
+    //       buttonText: '搜索'
+    //     },
+    //     modal: {
+    //       searchBox: {
+    //         resetButtonTitle: '清除查询条件',
+    //         resetButtonAriaLabel: '清除查询条件',
+    //         cancelButtonText: '取消',
+    //         cancelButtonAriaLabel: '取消'
+    //       },
+    //       startScreen: {
+    //         recentSearchesTitle: '搜索历史',
+    //         noRecentSearchesText: '没有搜索历史',
+    //         saveRecentSearchButtonTitle: '保存到搜索历史',
+    //         removeRecentSearchButtonTitle: '从搜索历史中移除',
+    //         favoriteSearchesTitle: '收藏',
+    //         removeFavoriteSearchButtonTitle: '从收藏中移除'
+    //       },
+    //       errorScreen: {
+    //         titleText: '无法获取结果',
+    //         helpText: '你可能需要检查你的网络连接'
+    //       },
+    //       footer: {
+    //         selectText: '选择',
+    //         navigateText: '切换',
+    //         closeText: '关闭',
+    //         searchByText: '搜索供应商'
+    //       },
+    //       noResultsScreen: {
+    //         noResultsText: '无法找到相关结果',
+    //         suggestedQueryText: '你可以尝试查询',
+    //         reportMissingResultsText: '你认为这个查询应该有结果？',
+    //         reportMissingResultsLinkText: '向我们反馈'
+    //       }
+    //     }
+    //   },
+    // },
 
     // carbonAds: {
     //   code: 'CEBIEK3N',
@@ -105,14 +105,14 @@ export default defineConfig({
 
     footer: {
       copyright:
-        '本文档内容版权为 elegant-admin 所有，保留所有权利'
+        '本文档内容版权为 laravel-admin 所有'
     },
 
     nav: [
       { text: '文档', link: '/guide/', activeMatch: '/guide/' },
       { text: '插件', link: 'https://github.com/laravel-admin-extensions' },
-      { text: '团队', link: '/team/', activeMatch: '/team/' },
-      { text: '发行说明', link: 'https://github.com/elegant-admin/provider/releases' },
+      // { text: '团队', link: '/team/', activeMatch: '/team/' },
+      { text: '发行说明', link: 'https://github.com/z-song/laravel-admin/releases' },
       {
         text: 'Version',
         items: [
@@ -162,6 +162,10 @@ export default defineConfig({
             {
               text: '页面内容和布局',
               link: '/guide/content-layout'
+            },
+            {
+              text: '统一回复',
+              link: '/guide/questions'
             }
           ]
         },

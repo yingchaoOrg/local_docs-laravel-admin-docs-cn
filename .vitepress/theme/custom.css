@@ -87,3 +87,11 @@
 .vp-doc table {
   white-space: nowrap;
 }
+
+.vp-doc .header-anchor:before {
+  content: none;
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: none !important;
+}

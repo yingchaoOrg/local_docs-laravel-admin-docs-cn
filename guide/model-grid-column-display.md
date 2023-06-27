@@ -128,7 +128,7 @@ $grid->column('content')->view('content');
 如果一行的字段比较多，可以通过列展开功能，来隐藏过多的内容。通过点击列来展开显示，或者点击展开相关的其它数据，比如下面的例子，用来展开一条文章下的10条最新评论：
 
 ```php
-use Elegant\Admin\Widgets\Table;
+use Encore\Admin\Widgets\Table;
 
 $grid->column('title', '标题')->expand(function ($model) {
 
@@ -146,7 +146,9 @@ $grid->column('title', '标题')->expand(function ($model) {
 
 闭包函数中可以返回任何可被渲染的内容。
 
-## 异步加载 {#异步加载1}
+## 异步加载 {#异步加载}
+
+> Since v.18.0
 
 先定义可渲染类
 
@@ -167,27 +169,6 @@ class ShowUser implements Renderable
 ```php
 $grid->expand('user', '标题')->modal(ShowUser::class);
 ```
-
-## 弹出模态框 {#弹出模态框}
-
-和`列展开`功能类似，可以通过弹出模态框来显示更多内容
-
-```php
-$grid->column('title', '标题')->modal('最新评论', function ($model) {
-
-    $comments = $model->comments()->take(10)->get()->map(function ($comment) {
-        return $comment->only(['id', 'content', 'created_at']);
-    });
-
-    return new Table(['ID', '内容', '发布时间'], $comments->toArray());
-});
-```
-
-显示效果如下：
-
-![Kapture 2019-03-10 at 23 43 49](https://user-images.githubusercontent.com/1479100/54087609-7abb7280-438f-11e9-8a44-7e68bb126cd1.gif)
-
-## 异步加载 {#异步加载2}
 
 先定义可渲染类
 
@@ -211,6 +192,27 @@ $grid->column('user', '标题')->modal(ShowUser::class);
 // 或者
 $grid->column('user', '标题')->modal('标题。。', ShowUser::class);
 ```
+
+## 弹出模态框 {#弹出模态框}
+
+> Since v1.6.10
+
+和`列展开`功能类似，可以通过弹出模态框来显示更多内容
+
+```php
+$grid->column('title', '标题')->modal('最新评论', function ($model) {
+
+    $comments = $model->comments()->take(10)->get()->map(function ($comment) {
+        return $comment->only(['id', 'content', 'created_at']);
+    });
+
+    return new Table(['ID', '内容', '发布时间'], $comments->toArray());
+});
+```
+
+显示效果如下：
+
+![Kapture 2019-03-10 at 23 43 49](https://user-images.githubusercontent.com/1479100/54087609-7abb7280-438f-11e9-8a44-7e68bb126cd1.gif)
 
 ## Gavatar头像 {#Gavatar头像}
 
@@ -440,11 +442,11 @@ $grid->column('status')->using([
 
 ## 列操作 {#列操作}
 
+> Since v1.7.6
+
 ![WX20190830-001824](https://user-images.githubusercontent.com/1479100/63958089-3eeea380-cabc-11e9-9a3e-0f3a22ae9756.png)
 
-::: tip 注意
-在使用这个方法之前，请先阅读【自定义操作-行操作】
-:::
+> 注意：在使用这个方法之前，请先阅读[【自定义操作-行操作】](https://laravel-admin.org/docs/zh/1.x/model-grid-custom-actions#行操作)
 
 这个功能可以将某一列显示为一个可操作的按钮，比如上图所示是一个`标星`和`取消标星`的列操作，点击这一列的星标图标之后, 后台会切换字段的状态，页面图标也跟着切换，具体实现代码如下：
 
@@ -454,7 +456,7 @@ $grid->column('status')->using([
 namespace App\Admin\Actions\Document;
 
 use App\Models\Document;
-use Elegant\Admin\Actions\RowAction;
+use Encore\Admin\Actions\RowAction;
 
 class StarDocument extends RowAction
 {

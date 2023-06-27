@@ -85,11 +85,11 @@ Admin::html('<template>...</template>');
 $ php artisan admin:minify
 
 JS and CSS are successfully minified:
-  vendor/elegant-admin/elegant-admin.min.js
-  vendor/elegant-admin/elegant-admin.min.css
+  vendor/laravel-admin/laravel-admin.min.js
+  vendor/laravel-admin/laravel-admin.min.css
 
 Manifest successfully generated:
-  vendor/elegant-admin/minify-manifest.json
+  vendor/laravel-admin/minify-manifest.json
 ```
 
 这个命令会生成三个文件，查看后台页面源码就可以看到效果了。
@@ -102,9 +102,9 @@ Manifest successfully generated:
 $ php artisan admin:minify --clear
 
 Following files are cleared:
-  vendor/elegant-admin/elegant-admin.min.js
-  vendor/elegant-admin/elegant-admin.min.css
-  vendor/elegant-admin/minify-manifest.json
+  vendor/laravel-admin/laravel-admin.min.js
+  vendor/laravel-admin/laravel-admin.min.css
+  vendor/laravel-admin/minify-manifest.json
 ```
 
 ## 配置 {#配置}

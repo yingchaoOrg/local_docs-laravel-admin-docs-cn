@@ -42,3 +42,76 @@ $grid->batchActions(function ($batch) {
 // 去掉批量操作
 $grid->disableBatchActions();
 ```
+
+## 自定义操作 {#自定义操作}
+
+> 从v1.7.3版本开始，以下文档废弃，请不要再使用。请使用[文档](https://laravel-admin.org/docs/zh/1.x/model-grid-custom-actions).
+
+如果有自定义的操作按钮，可以通过下面的方式添加：
+
+```php
+$grid->actions(function ($actions) {
+    // append一个操作
+    $actions->append('<a href=""><i class="fa fa-eye"></i></a>');
+
+    // prepend一个操作
+    $actions->prepend('<a href=""><i class="fa fa-paper-plane"></i></a>');
+});
+```
+
+如果有比较复杂的操作，可以参考下面的方式：
+
+先定义操作类
+
+```php
+<?php
+
+namespace App\Admin\Extensions;
+
+use Encore\Admin\Admin;
+
+class CheckRow
+{
+    protected $id;
+
+    public function __construct($id)
+    {
+        $this->id = $id;
+    }
+
+    protected function script()
+    {
+        return <<<SCRIPT
+
+$('.grid-check-row').on('click', function () {
+
+    // Your code.
+    console.log($(this).data('id'));
+
+});
+
+SCRIPT;
+    }
+
+    protected function render()
+    {
+        Admin::script($this->script());
+
+        return "<a class='btn btn-xs btn-success fa fa-check grid-check-row' data-id='{$this->id}'></a>";
+    }
+
+    public function __toString()
+    {
+        return $this->render();
+    }
+}
+```
+
+然后添加操作：
+
+```php
+$grid->actions(function ($actions) {
+    // 添加操作
+    $actions->append(new CheckRow($actions->getKey()));
+});
+```

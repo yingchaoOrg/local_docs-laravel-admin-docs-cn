@@ -42,7 +42,7 @@ $export->column('column_5', function ($value, $original) {
 
 其中传入闭包函数中的`$value`和`$original`为该列的原始值和应用过某些方法之后被修改之后的值，你可以在闭包函数中实现自己的逻辑。
 
-## Laravel-Excel v3.* {#Laravel-Excel-v3.*}
+## Laravel-Excel v3.*
 
 在`v1.6.12`版本之后增加了对`Laravel-Excel 3.*`版本的导出支持。
 
@@ -55,7 +55,7 @@ $export->column('column_5', function ($value, $original) {
 
 namespace App\Admin\Extensions;
 
-use Elegant\Admin\Grid\Exporters\ExcelExporter; 
+use Encore\Admin\Grid\Exporters\ExcelExporter; 
 
 class PostsExporter extends ExcelExporter
 {
@@ -88,7 +88,7 @@ class PostsExporter extends ExcelExporter
 }
 ```
 
-## 数据修改 {#数据修改}
+## 数据修改
 
 按照上面的方法，会将数据库中存储的原始数据导出，如果你希望对数据进行预处理，参考下面的方式：
 
@@ -97,7 +97,7 @@ class PostsExporter extends ExcelExporter
 
 namespace App\Admin\Extensions\Export;
 
-use Elegant\Admin\Grid\Exporters\ExcelExporter;
+use Encore\Admin\Grid\Exporters\ExcelExporter;
 use Maatwebsite\Excel\Concerns\WithMapping;
 
 class UsersExporter extends ExcelExporter implements WithMapping
@@ -123,7 +123,7 @@ class UsersExporter extends ExcelExporter implements WithMapping
 }
 ```
 
-## Laravel-Excel v2.* {#Laravel-Excel-v2.*}
+## Laravel-Excel v2.*
 
 本示例用[Laravel-Excel](https://github.com/Maatwebsite/Laravel-Excel)作为excel操作库，当然也可以使用任何其他excel库
 
@@ -142,7 +142,7 @@ php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
 
 namespace App\Admin\Extensions;
 
-use Elegant\Admin\Grid\Exporters\AbstractExporter;
+use Encore\Admin\Grid\Exporters\AbstractExporter;
 use Maatwebsite\Excel\Facades\Excel;
 
 class ExcelExpoter extends AbstractExporter

@@ -63,63 +63,63 @@ $grid->quickSearch();
 
 ## 比较查询 {#比较查询}
 
-```
-title:foo` 、`title:!foo
+```php
+// title:foo
 $model->where('title', 'foo');
-
+// title:!foo
 $model->where('title', '!=', 'foo');
-rate:>10`、`rate:<10`、`rate:>=10`、`rate:<=10
+// rate:>10
 $model->where('rate', '>', 10);
-
+// rate:<10
 $model->where('rate', '<', 10);
-
+// rate:>=10
 $model->where('rate', '>=', 10);
-
+// rate:<=10
 $model->where('rate', '<=', 10);
 ```
 
 ## In、NotIn查询 {#In-NotIn查询}
 
-```
-status:(1,2,3,4)`、`status:!(1,2,3,4)
+```php
+// status:(1,2,3,4)
 $model->whereIn('status', [1,2,3,4]);
-
+// status:!(1,2,3,4)
 $model->whereNotIn('status', [1,2,3,4]);
 ```
 
 ## Between查询 {#Between查询}
 
-```
-score:[1,10]
+```php
+// score:[1,10]
 $model->whereBetween('score', [1, 10]);
 ```
 
 ## 时间日期函数查询 {#时间日期函数查询}
 
-```
-created_at:date,2019-06-08
+```php
+// created_at:date,2019-06-08
 $model->whereDate('created_at', '2019-06-08');
-created_at:time,09:57:45
+// created_at:time,09:57:45
 $model->whereTime('created_at', '09:57:45');
-created_at:day,08
+// created_at:day,08
 $model->whereDay('created_at', '08');
-created_at:month,06
+// created_at:month,06
 $model->whereMonth('created_at', '06');
-created_at:year,2019
+// created_at:year,2019
 $model->whereYear('created_at', '2019');
 ```
 
 ## Like查询 {#Like查询}
 
-```
-content:%Laudantium%
+```php
+// content:%Laudantium%
 $model->where('content', 'like', 'Laudantium');
 ```
 
 ## 正则查询 {#正则查询}
 
-```
-username:/song/
+```php
+// username:/song/
 $model->where('username', 'REGEXP', 'song');
 ```
 
@@ -146,7 +146,7 @@ $model->where('username', 'like', '%song%')->orWhereIn('status', [1, 2, 3]);
 不方便得到字段名的情况下，可以直接使用`label`名称作为查询字段
 
 ```php
- // 比如设置了`user_status`的表头列名为`用户状态`
+// 比如设置了`user_status`的表头列名为`用户状态`
 $grid->column('user_status', '用户状态');
 ```
 

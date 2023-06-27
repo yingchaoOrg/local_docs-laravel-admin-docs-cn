@@ -2,7 +2,7 @@
 
 安装完成之后，会生成两个配置文件，用来对管理后台进行配置，`config/admin.php`和`app/Admin/bootstrap.php`
 
-## config/admin.php {#config-admin}
+## config/admin.php {#admin}
 
 ```php
 <?php
@@ -11,61 +11,56 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | name
+    | Laravel-admin name
     |--------------------------------------------------------------------------
     |
-    | This value is the name of laravel-admin, This setting is displayed on the
-    | login page.
+    | 登录页面的大标题，显示在登录页面
     |
     */
-    'name' => 'Elegant-Admin',
+    'name' => 'Laravel-admin',
 
     /*
     |--------------------------------------------------------------------------
-    | logo
+    | Laravel-admin logo
     |--------------------------------------------------------------------------
     |
-    | The logo of all admin pages. You can also set it as an image by using a
-    | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
+    | 管理页面的logo设置，如果要设置为图片，可以设置为img标签
+    | <img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>Elegant</b> Admin',
+    'logo' => '<b>Laravel</b> admin',
 
     /*
     |--------------------------------------------------------------------------
-    | mini logo
+    | Laravel-admin mini logo
     |--------------------------------------------------------------------------
     |
-    | The logo of all admin pages when the sidebar menu is collapsed. You can
-    | also set it as an image by using a `img` tag, eg
-    | '<img src="http://logo-url" alt="Admin logo">'.
+    | 当左侧边栏收起时显示的小logo，也可以设置为html标签
     |
     */
-    'logo-mini' => '<b>EA</b>',
+    'logo-mini' => '<b>La</b>',
 
     /*
     |--------------------------------------------------------------------------
-    | bootstrap setting
+    | Laravel-admin bootstrap setting
     |--------------------------------------------------------------------------
     |
-    | This value is the path of bootstrap file.
+    | 用来设置启动文件
     |
     */
     'bootstrap' => app_path('Admin/bootstrap.php'),
 
     /*
     |--------------------------------------------------------------------------
-    | route settings
+    | Laravel-admin route settings
     |--------------------------------------------------------------------------
     |
-    | The routing configuration of the admin page, including the path prefix,
-    | the controller namespace, and the default middleware. If you want to
-    | access through the root path, just set the prefix to empty string.
+    | 后台路由配置，应用在`app/Admin/routes.php`里面
     |
     */
     'route' => [
 
-        'prefix' => env('ADMIN_ROUTE_PREFIX', 'admin'),
+        'prefix' => 'admin',
 
         'namespace' => 'App\\Admin\\Controllers',
 
@@ -74,22 +69,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | install directory
+    | Laravel-admin install directory
     |--------------------------------------------------------------------------
     |
-    | The installation directory of the controller and routing configuration
-    | files of the administration page. The default is `app/Admin`, which must
-    | be set before running `artisan admin::install` to take effect.
+    | 后台的安装目录，如果在运行`admin:install`之前修改它，那么后台目录将会是这个配置的目录
     |
     */
     'directory' => app_path('Admin'),
 
     /*
     |--------------------------------------------------------------------------
-    | html title
+    | Laravel-admin html title
     |--------------------------------------------------------------------------
     |
-    | Html title for all pages.
+    | 所有页面的<title>标签内容
     |
     */
     'title' => 'Admin',
@@ -99,31 +92,26 @@ return [
     | Access via `https`
     |--------------------------------------------------------------------------
     |
-    | If your page is going to be accessed via https, set it to `true`.
+    | 后台是否使用https
     |
     */
     'https' => env('ADMIN_HTTPS', false),
 
     /*
     |--------------------------------------------------------------------------
-    | auth setting
+    | Laravel-admin auth setting
     |--------------------------------------------------------------------------
     |
-    | Authentication settings for all admin pages. Include an authentication
-    | guard and a user provider setting of authentication driver.
-    |
-    | You can specify a controller for `login` `logout` and other auth routes.
+    | 后台用户使用的用户认证配置
     |
     */
     'auth' => [
 
-        'auth_controller' => App\Admin\Controllers\AuthController::class,
-
-        'guard' => 'admin',
+        'controller' => App\Admin\Controllers\AuthController::class,
 
         'guards' => [
             'admin' => [
-                'driver' => 'session',
+                'driver'   => 'session',
                 'provider' => 'admin',
             ],
         ],
@@ -131,67 +119,60 @@ return [
         'providers' => [
             'admin' => [
                 'driver' => 'eloquent',
-                'model' => Elegant\Admin\Auth\Database\User::class,
+                'model'  => Encore\Admin\Auth\Database\Administrator::class,
             ],
         ],
 
         // Add "remember me" to login form
         'remember' => true,
 
-        // Redirect to the specified URI when user is not authorized.
-        'redirect_to' => 'login',
+        // 登陆之后的跳转地址
+        'redirect_to' => 'auth/login',
 
-        // The URIs that should be excluded from authorization.
+        // 登陆验证的排除URI
         'excepts' => [
-            "login",
-            "logout",
-            "_handle_form_",
-            "_handle_action_",
-            "_handle_selectable_",
-            "_handle_renderable_",
+            'auth/login',
+            'auth/logout',
         ],
-
-        // consolidation of routing permissions
-        'merge' => [
-            'self_setting_put' => 'self_setting',
-            'store' => 'create',
-            'update' => 'edit',
-        ]
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | upload setting
+    | Laravel-admin upload setting
     |--------------------------------------------------------------------------
     |
-    | File system configuration for form upload files and images, including
-    | disk and upload path.
+    | 在Form表单中的image和file类型的默认上传磁盘和目录设置，其中disk的配置会使用在
+    | config/filesystem.php里面配置的一项disk
     |
     */
     'upload' => [
 
-        // Disk in `config/filesystem.php`.
+        // `config/filesystem.php`中设置的disk
         'disk' => 'admin',
 
-        // Image and file upload path under the disk above.
+        // image和file类型表单元素的上传目录
         'directory' => [
             'image' => 'images',
-            'file' => 'files',
+            'file'  => 'files',
         ],
-
-        // Global configuration file returns the complete url
-        'back_full_url' => false,
-
-        // Global configuration file use unique name
-        'unique_name' => false,
     ],
 
     /*
     |--------------------------------------------------------------------------
-    | database settings
+    | Laravel-admin database settings
     |--------------------------------------------------------------------------
     |
-    | Here are database settings for builtin model & tables.
+    | 安装laravel-admin之后，默认会在数据库中新建下面9张表，包括用户、菜单、角色、权限、
+    | 日志和它们之间的关系表，下面的配置是标的名字和对应的模型
+    |
+    | 其中的`connection`配置为下面几个模型所使用的数据库连接，对应`config/database.php`
+    | 中的connections里面设置的connection,
+    |
+    | 如果你想修改数据库里面这几个表的名字，可以在运行`admin:install`之前修改它们
+    | 如果install之后想修改，那么可以手动在数据库中修改，然后再修改下面几项的值
+    |
+    | 如果你需要在表里面增加字段，可以自定义模型，然后替换掉下面的模型设置即可，控制器的修改
+    | 也可以通过覆盖路由的方式、覆盖掉内置的路由配置
     |
     */
     'database' => [
@@ -199,30 +180,28 @@ return [
         // Database connection for following tables.
         'connection' => '',
 
-        // User table, model and controller
+        // User tables and model.
         'users_table' => 'admin_users',
-        'users_model' => Elegant\Admin\Auth\Database\User::class,
-        //users_controller' => App\Admin\Controllers\AdminUserController::class,
-        // Limit the maximum number of administrator roles that can be selected, default is 0, 0 means no limit
-        //'users_maximum_roles' => '1',
+        'users_model' => Encore\Admin\Auth\Database\Administrator::class,
 
-        // Role table, model and controller
+        // Role table and model.
         'roles_table' => 'admin_roles',
-        'roles_model' => Elegant\Admin\Auth\Database\Role::class,
-        //'roles_controller' => App\Admin\Controllers\AdminRoleController::class,
+        'roles_model' => Encore\Admin\Auth\Database\Role::class,
 
-        // Menu table, model and controller
-        'menus_table' => 'admin_menus',
-        'menus_model' => Elegant\Admin\Auth\Database\Menu::class,
-        //'menus_controller' => App\Admin\Controllers\AdminMenuController::class,
+        // Permission table and model.
+        'permissions_table' => 'admin_permissions',
+        'permissions_model' => Encore\Admin\Auth\Database\Permission::class,
 
-        // Log table, model and controller
-        'logs_table' => 'admin_logs',
-        'logs_model' => Elegant\Admin\Auth\Database\Log::class,
-        //'logs_controller' => App\Admin\Controllers\AdminLogController::class,
+        // Menu table and model.
+        'menu_table' => 'admin_menu',
+        'menu_model' => Encore\Admin\Auth\Database\Menu::class,
 
         // Pivot table for table above.
-        'user_roles_table' => 'admin_user_roles',
+        'operation_log_table'    => 'admin_operation_log',
+        'user_permissions_table' => 'admin_user_permissions',
+        'role_users_table'       => 'admin_role_users',
+        'role_permissions_table' => 'admin_role_permissions',
+        'role_menu_table'        => 'admin_role_menu',
     ],
 
     /*
@@ -230,68 +209,43 @@ return [
     | User operation log setting
     |--------------------------------------------------------------------------
     |
-    | By setting this option to open or close operation log in Elegant-Admin.
+    | 操作日志记录的配置
     |
     */
     'operation_log' => [
 
+        // 是否开启日志记录、默认打开
         'enable' => true,
 
         /*
-         * Only logging allowed methods in the list
+         * 允许记录请求日志的HTTP方法
          */
         'allowed_methods' => ['GET', 'HEAD', 'POST', 'PUT', 'DELETE', 'CONNECT', 'OPTIONS', 'TRACE', 'PATCH'],
 
-        /**
-         * replace sensitive field data entered in the log
-         */
-        'desensitization' => [
-            'password',
-            'password_confirmation',
-        ],
-
         /*
-         * Routes that will not log to database.
-         *
-         * All method to path like: admin/auth/logs
-         * or specific method to path like: get:admin/auth/logs.
+         * 不需要被记录日志的url路径
          */
         'except' => [
-            'admin_logs',
-            'admin_logs/*',
+            'admin/auth/logs*',
         ],
     ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Indicates whether to check route permission.
-    |--------------------------------------------------------------------------
-    */
-    'check_permissions' => true,
-
-    /*
-    |--------------------------------------------------------------------------
-    | Indicates whether to check menu roles.
-    |--------------------------------------------------------------------------
-    */
-    'check_menus' => true,
 
     /*
     |--------------------------------------------------------------------------
     | User default avatar
     |--------------------------------------------------------------------------
     |
-    | Set a default avatar for newly created users.
+    | 默认头像
     |
     */
-    'default_avatar' => '/vendor/elegant-admin/AdminLTE/dist/img/user2-160x160.jpg',
+    'default_avatar' => '/vendor/laravel-admin/AdminLTE/dist/img/user2-160x160.jpg',
 
     /*
     |--------------------------------------------------------------------------
     | Admin map field provider
     |--------------------------------------------------------------------------
     |
-    | Supported: "tencent", "google", "yandex".
+    | model-form中map组件所使用的地图配置，支持三个地图服务商: "tencent", "google", "yandex".
     |
     */
     'map_provider' => 'google',
@@ -301,36 +255,35 @@ return [
     | Application Skin
     |--------------------------------------------------------------------------
     |
-    | This value is the skin of admin pages.
-    | @see https://adminlte.io/docs/2.4/layout
+    | 皮肤设置，参考https://adminlte.io/docs/2.4/layout设置
     |
-    | Supported:
+    | 支持的设置为:
     |    "skin-blue", "skin-blue-light", "skin-yellow", "skin-yellow-light",
     |    "skin-green", "skin-green-light", "skin-purple", "skin-purple-light",
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-black-light',
+    'skin' => 'skin-blue-light',
 
     /*
     |--------------------------------------------------------------------------
     | Application layout
     |--------------------------------------------------------------------------
     |
-    | This value is the layout of admin pages.
-    | @see https://adminlte.io/docs/2.4/layout
+    | 布局设置，参考https://adminlte.io/docs/2.4/layout
     |
-    | Supported: "fixed", "layout-boxed", "layout-top-nav", "sidebar-collapse", "sidebar-mini".
+    | 支持的设置为: "fixed", "layout-boxed", "layout-top-nav", "sidebar-collapse",
+    | "sidebar-mini".
     |
     */
-    'layout' => ['fixed', 'sidebar-mini'],
+    'layout' => ['sidebar-mini', 'sidebar-collapse'],
 
     /*
     |--------------------------------------------------------------------------
     | Login page background image
     |--------------------------------------------------------------------------
     |
-    | This value is used to set the background image of login page.
+    | 登录页面的背景图设置
     |
     */
     'login_background_image' => '',
@@ -340,7 +293,7 @@ return [
     | Show version at footer
     |--------------------------------------------------------------------------
     |
-    | Whether to display the version number of at the footer of each page
+    | 是否在页面的右下角显示当前laravel-admin的版本
     |
     */
     'show_version' => true,
@@ -350,7 +303,7 @@ return [
     | Show environment at footer
     |--------------------------------------------------------------------------
     |
-    | Whether to display the environment at the footer of each page
+    | 是否在页面的右下角显示当前的环境
     |
     */
     'show_environment' => true,
@@ -360,27 +313,41 @@ return [
     | Menu bind to permission
     |--------------------------------------------------------------------------
     |
-    | whether enable menu bind to a permission
+    | 菜单是否绑定权限
     */
     'menu_bind_permission' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | 是否要开启路由权限检查
+    |--------------------------------------------------------------------------
+    */
+    'check_route_permission' => true,
+
+    /*
+    |--------------------------------------------------------------------------
+    | 是否要开启菜单可见角色检查
+    |--------------------------------------------------------------------------
+    */
+    'check_menu_roles'       => true,
 
     /*
     |--------------------------------------------------------------------------
     | Enable default breadcrumb
     |--------------------------------------------------------------------------
     |
-    | Whether enable default breadcrumb for every page content.
+    | 是否开启页面的面包屑导航
     */
     'enable_default_breadcrumb' => true,
 
     /*
     |--------------------------------------------------------------------------
-    | Enable/Disable assets minify
+    | 是否开启静态资源文件的压缩
     |--------------------------------------------------------------------------
     */
     'minify_assets' => [
 
-        // Assets will not be minified.
+        // 不需要被压缩的文件
         'excepts' => [
 
         ],
@@ -389,32 +356,31 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Enable/Disable sidebar menu search
+    | 是否要开启侧边栏的菜单搜索
     |--------------------------------------------------------------------------
     */
     'enable_menu_search' => true,
 
     /*
     |--------------------------------------------------------------------------
-    | Alert message that will displayed on top of the page.
+    | 用来设置顶部的文字提示.
     |--------------------------------------------------------------------------
     */
     'top_alert' => '',
 
     /*
     |--------------------------------------------------------------------------
-    | The global Grid action display class.
+    | 设置数据表格的操作列显示类
     |--------------------------------------------------------------------------
     */
-    'grid_action_class' => \Elegant\Admin\Grid\Displayers\DropdownActions::class,
+    'grid_action_class' => \Encore\Admin\Grid\Displayers\DropdownActions::class,
 
     /*
     |--------------------------------------------------------------------------
     | Extension Directory
     |--------------------------------------------------------------------------
     |
-    | When you use command `php artisan admin:extend` to generate extensions,
-    | the extension files will be generated in this directory.
+    | 如果你要运行`php artisan admin:extend`命令来开发扩展，需要配置这一项，来存放你的扩展文件
     */
     'extension_dir' => app_path('Admin/Extensions'),
 
@@ -423,36 +389,16 @@ return [
     | Settings for extensions.
     |--------------------------------------------------------------------------
     |
-    | You can find all available extensions here
-    | https://github.com/laravel-admin-extensions.
+    | 每一个laravel-admin扩展对应的配置，都写在这下面，扩展可以参考 https://github.com/laravel-admin-extensions
     |
     */
     'extensions' => [
-        // Editor configuration
-        'editor' => [
-            'config' => [
-                'lang' => 'zh-CN',
-                'height' => 300,
-//                'toolbar' => [
-//                    ['name' => 'clipboard', 'items' => ['Undo', 'Redo', 'Cut', 'Copy']],
-//                    ['name' => 'editing', 'items' => [ 'Scayt' ]],
-//                    ['name' => 'basicstyles', 'items' => [ 'Bold', 'Italic', 'Strike', '-', 'RemoveFormat' ]],
-//                    ['name' => 'paragraph', 'items' => [ 'NumberedList', 'BulletedList', '-', 'Blockquote' ]],
-//                    ['name' => 'links', 'items' => [ 'Link', 'Unlink', 'Anchor' ]],
-//                    ['name' => 'insert', 'items' => ['Image', 'Table', 'HorizontalRule']],
-//                    ['name' => 'styles', 'items' => [ 'Styles', 'Format' ]],
-//                    ['name' => 'document', 'items' => [ 'Source' ]],
-//                    ['name' => 'tools', 'items' => [ 'Maximize' ]]
-//                ],
-//                'filebrowserImageBrowseUrl' => '/file/browse',
-//                'filebrowserImageUploadUrl' => '/editor/upload',
-            ]
-        ],
+
     ],
 ];
 ```
 
-## app/Admin/bootstrap.php {#app-Admin-bootstrap}
+## app/Admin/bootstrap.php {#bootstrap}
 
 在这个配置文件中可以扩展或者移除你的组件，或者引入前端资源
 
@@ -460,14 +406,16 @@ return [
 <?php
 
 /**
+ * Laravel-admin - admin builder based on Laravel.
+ * @author  z-song <https://github.com/z-song>
  *
- * Bootstrapper for Admin.
+ * Bootstraper for Admin.
  *
  * Here you can remove builtin form field:
- * Elegant\Admin\Form::forget(['map', 'editor']);
+ * Encore\Admin\Form::forget(['map', 'editor']);
  *
  * Or extend custom form field:
- * Elegant\Admin\Form::extend('php', PHPEditor::class);
+ * Encore\Admin\Form::extend('php', PHPEditor::class);
  *
  * Or require js and css assets:
  * Admin::css('/packages/prettydocs/css/styles.css');
@@ -475,5 +423,5 @@ return [
  *
  */
 
-Elegant\Admin\Form::forget(['map']);
+Encore\Admin\Form::forget(['map', 'editor']);
 ```

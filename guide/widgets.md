@@ -95,7 +95,7 @@ $infoBox = new InfoBox('New Users', 'users', 'aqua', '/admin/users', '1024');
 echo $infoBox->render();
 ```
 
-效果请参考后台首页的布局文件[HomeController.php](https://github.com/z-song/elegant-admin/blob/master/src/Console/stubs/HomeController.stub)的`index()`方法中，关于`InfoBox`的部分。
+效果请参考后台首页的布局文件[HomeController.php](https://github.com/z-song/laravel-admin/blob/master/src/Console/stubs/HomeController.stub)的`index()`方法中，关于`InfoBox`的部分。
 
 ## Tab组件 {#Tab组件}
 
