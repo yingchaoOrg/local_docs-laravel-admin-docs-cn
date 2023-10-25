@@ -17,5 +17,12 @@
 
 
 ```
+# 打包
+docker build . --tag ghcr.io/yingchaoorg/local_docs-laravel-admin-docs-cn:main
+# 临时运行 (停止后删除)
+docker run -p  34802:80 --name  local_docs-laravel-admin-docs-cn --rm ghcr.io/yingchaoorg/local_docs-laravel-admin-docs-cn:main
+# 后台运行
+docker run -p  34802:80 --name local_docs-laravel-admin-docs-cn -d ghcr.io/yingchaoorg/local_docs-laravel-admin-docs-cn:main
 
+docker stop local_docs-laravel-admin-docs-cn
 ```
